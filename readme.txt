@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 https://qiita.com/shinya0502/private/0281f579fb3a4b1c616c
 
 
@@ -110,3 +111,6 @@ C:\app\project\web-server>serve -s build
  HTTP  2025/12/8 1:03:36 172.31.16.1 GET /static/css/main.a9708b89.css
  HTTP  2025/12/8 1:03:36 172.31.16.1 Returned 200 in 5 ms
  HTTP  2025/12/8 1:03:36 172.31.16.1 Returned 200 in 5 ms
+=======
+https://qiita.com/shinya0502/private/0281f579fb3a4b1c616c
+>>>>>>> 963c8476228dacc72909eda4dff2e9c77273ca99
