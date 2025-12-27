@@ -7,12 +7,10 @@
  *************************************************/
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-// import logo from './logo.svg';
-// import './App.css';
 
 import Top from "./components/pages/homes/top";
-import Profile from "./components/pages/homes/profile";
-import Skill from "./components/pages/homes/skill";
+import Artworks from "./components/pages/homes/artworks";
+import Otherworks from "./components/pages/homes/otherworks";
 import Production from "./components/pages/homes/production";
 import Contact from "./components/pages/homes/contact";
 import NoMatch from "./components/pages/homes/nomatch";
@@ -29,8 +27,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Top />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/skill" element={<Skill />} />
+        <Route path="/artworks" element={<Artworks />} />
+        <Route path="/otherworks" element={<Otherworks />} />
         <Route path="/production" element={<Production />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
