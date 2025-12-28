@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.point {
+    position: relative;
+    height: 1000px;
+    width: 100%;
+}
+
+/* --- 全体のBOX定義 ---------------------------------------- */
+/* .box { */
+/* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+/* } */
+
+/* --- 背景の指定 ------------------------------------------- */
+.box .bgImg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    animation: bgAnime 20s infinite;
+    /* 4画像 × 各5s = 20s */
+}
+
+/* --- 段差で背景画像のアニメーションを実行 ----------------- */
+.box .src1 {
+    background-image: url(image/top/top1.jpg);
+}
+
+.box .src2 {
+    background-image: url(image/top/top2.jpg);
+    animation-delay: 5s;
+}
+
+.box .src3 {
+    background-image: url(image/top/top3.jpg);
+    animation-delay: 10s;
+}
+
+.box .src4 {
+    background-image: url(image/top/top4.jpg);
+    animation-delay: 15s;
+}
+
+@keyframes bgAnime {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.top_pop1 {
+    font-family: "メイリオ", Meiryo, sans-serif;
+    color: rgb(64, 64, 64);
+    top: 300px;
+    left: 10%;
+    position: absolute;
+    width: 35%;
+    height: 400px;
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+.top_pop2 {
+    position: relative;
+    width:100%;
+    top: 20px;
+    left: 30px;
+}
+
+.top_pop3 {
+    position: relative;
+    width:100%;
+    top: 30px;
+    left: 30px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.top_info {
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    border-bottom: 2px solid #333;
+    top: 10px;
+    width: 90%;
+}
+
+.top_info_data {
+    position: relative;
+    display: inline-block;
+    top: 20px;
+    left:20px;
+    width: 90%;
+}
