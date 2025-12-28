@@ -1,7 +1,18 @@
+/******************************************************************************
+ * otherworks.tsx
+ *****************************************************************************/
+
+/*************************************************
+ * import
+ *************************************************/
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import commonStyles from 'css/common.module.css';
 
+/*************************************************
+ * otherworks
+ *************************************************/
 function otherworks() {
     return(
         <>
@@ -11,7 +22,7 @@ function otherworks() {
                 exit={{ opacity: 0 }}          // ページ離脱時（透明）
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
-                <div className="background3"></div>
+                <div className={commonStyles.background3}></div>
             </motion.div>
         </>
     )

@@ -1,19 +1,8 @@
-/* .imageBox { */
-/* font-family: "メイリオ", Meiryo, sans-serif;
-    color: rgb(64, 64, 64);
-    top: 300px;
-    left: 20%;
-    position: absolute;
-    width: 35%;
-    height: 400px; */
-/* background-color: rgb(255, 255, 255, 0.5); */
-/* } */
-
 table {
     border-collapse: collapse;
     width: 80%;
     margin: 20px auto;
-    background: rgba(255, 255, 255, 0.15);
+    /* background: rgba(255, 255, 255, 0.15); */
 }
 
 th,
@@ -35,30 +24,20 @@ img {
     top: 15%;
     left: 50%;
     height: 100%;
-    width:100%;
+    width: 100%;
 }
 
 .description {
     top: 100px;
 }
 
-.imageBox {
-
-    /* top: 200px;
-    position: relative; */
-    /* top: 80%; */
-    /* left: 50%; */
-
-    /* 要素の中心を基準に補正 */
-
-    /* 画面全体の高さ */
-    /* background: #7b4545; */
-}
 img {
-  display: block;
-  transition: filter 0.3s ease; /* アニメーション */
+    display: block;
+    transition: filter 0.3s ease;
+    /* アニメーション */
 }
 
 img:hover {
-  filter: brightness(113%); /* 明るくして白っぽく */
+    filter: brightness(113%);
+    /* 明るくして白っぽく */
 }

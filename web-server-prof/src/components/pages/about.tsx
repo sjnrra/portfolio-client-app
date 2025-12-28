@@ -1,9 +1,19 @@
+/******************************************************************************
+ * about.tsx
+ *****************************************************************************/
+
+/*************************************************
+ * import
+ *************************************************/
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import 'css/common.css';
+import commonStyles from 'css/common.module.css';
 import { motion } from "framer-motion";
 
-function Production() {
+/*************************************************
+ * about
+ *************************************************/
+function About() {
     return (
         <>
             <motion.div
@@ -12,9 +22,9 @@ function Production() {
                 exit={{ opacity: 0 }}          // ページ離脱時（透明）
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
-                <div className="background2"></div>
-                <div className="top-pop1">
-                    <div className="top-pop2">
+                <div className={commonStyles.background2}></div>
+                <div className={commonStyles.top_pop1}>
+                    <div className={commonStyles.top_pop2}>
                         <p>■略歴</p>
                         <ul>
                             <li>1996 愛媛県生まれ</li>
@@ -33,4 +43,4 @@ function Production() {
     )
 }
 
-export default Production;
+export default About;

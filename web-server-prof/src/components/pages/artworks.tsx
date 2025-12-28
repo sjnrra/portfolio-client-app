@@ -1,9 +1,20 @@
+/******************************************************************************
+ * artworks.tsx
+ *****************************************************************************/
+
+/*************************************************
+ * import
+ *************************************************/
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import 'css/common.css';
+
+import commonStyles from 'css/common.module.css';
 import styles from "css/artworks.module.css";
 
+/*************************************************
+ * artworks
+ *************************************************/
 function artworks() {
     return (
         <>
@@ -13,7 +24,7 @@ function artworks() {
                 exit={{ opacity: 0 }}          // ページ離脱時（透明）
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
-                <div className="background1"></div>
+                <div className={commonStyles.background1}></div>
 
                 <div className={styles.box}>
                 <div className={styles.description}>

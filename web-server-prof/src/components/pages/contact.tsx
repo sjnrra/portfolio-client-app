@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import commonStyles from 'css/common.module.css';
 
 function Contact() {
     return(
@@ -11,7 +12,7 @@ function Contact() {
                 exit={{ opacity: 0 }}          // ページ離脱時（透明）
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
-                <div className="background4"></div>
+                <div className={commonStyles.background4}></div>
             </motion.div>
         </>
     )
