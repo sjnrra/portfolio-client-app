@@ -8,13 +8,12 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import Top from "./components/pages/homes/top";
-import Artworks from "./components/pages/homes/artworks";
-import Otherworks from "./components/pages/homes/otherworks";
-import Production from "./components/pages/homes/production";
-import Contact from "./components/pages/homes/contact";
-import NoMatch from "./components/pages/homes/nomatch";
-import Blog from "./components/pages/homes/blog";
+import Top from "./components/top/top";
+import Artworks from "./components/pages/artworks";
+import Otherworks from "./components/pages/otherworks";
+import Production from "./components/pages/about";
+import Contact from "./components/pages/contact";
+import Blog from "./components/pages/blog";
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 

@@ -1,4 +1,13 @@
-.background {
+.background1 {
+    background-image: url("image/top/top1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 2000px;
+    width: 100%;
+    opacity: 0.7;
+}
+.background2 {
     background-image: url("image/top/top2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,7 +16,45 @@
     width: 100%;
     opacity: 0.5;
 }
-
+.background3 {
+    background-image: url("image/top/top3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+    opacity: 0.5;
+}
+.background4 {
+    background-image: url("image/top/top4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+    opacity: 0.5;
+}
+.background5 {
+    background-image: url("image/top/top5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+    opacity: 0.5;
+}
+.background6 {
+    background-image: url("image/top/top6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+    opacity: 0.5;
+}
+/*
+ *
+ */
 .top-pop1 {
     font-family: "メイリオ", Meiryo, sans-serif;
     color: rgb(64, 64, 64);
