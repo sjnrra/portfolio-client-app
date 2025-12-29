@@ -6,7 +6,7 @@
  * import
  *************************************************/
 import React from "react";
-import 'css/footer.css'
+import 'css/Footer.css'
 
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";

@@ -28,7 +28,7 @@
     bottom: 0;
     right: 0;
     opacity: 0;
-    animation: bgAnime 20s infinite;
+    animation: bgAnime 25s infinite;
     /* 4画像 × 各5s = 20s */
 }
 
@@ -43,13 +43,17 @@
 }
 
 .box .src3 {
-    background-image: url(image/top/top3.jpg);
+    background-image: url(image/top/top4.jpg);
     animation-delay: 10s;
 }
 
 .box .src4 {
-    background-image: url(image/top/top4.jpg);
+    background-image: url(image/top/top10.jpg);
     animation-delay: 15s;
+}
+.box .src5 {
+    background-image: url(image/top/top3.jpg);
+    animation-delay: 20s;
 }
 
 @keyframes bgAnime {

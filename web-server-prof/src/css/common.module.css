@@ -5,7 +5,9 @@
     background-position: center;
     height: 2000px;
     width: 100%;
-    opacity: 0.3;
+    opacity: 0.1;
+    /* padding:100px; */
+    z-index: -9999;
 }
 .background2 {
     background-image: url("image/top/top2.jpg");

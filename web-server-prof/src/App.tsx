@@ -8,13 +8,13 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import Top from "./components/top/top";
-import Artworks from "./components/pages/artworks";
-import Otherworks from "./components/pages/otherworks";
-import Production from "./components/pages/about";
-import Contact from "./components/pages/contact";
-import Blog from "./components/pages/blog";
-import Header from './components/header/Header3'
+import Top from "./components/top/Top";
+import Artworks from "./components/pages/ArtWorks/Artworks";
+import Otherworks from "./components/pages/Otherworks";
+import Production from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Blog from "./components/pages/Blog";
+import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 
 /*************************************************

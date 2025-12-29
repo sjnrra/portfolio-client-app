@@ -6,12 +6,12 @@
  * import
  *************************************************/
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
 // css
-import styles from "css/top.module.css";
+import styles from "css/Top.module.css";
 // @mui
 import Typography from '@mui/material/Typography';
 import { motion } from "framer-motion";
+
 /*************************************************
  * Top
  *************************************************/
@@ -26,9 +26,10 @@ function Top() {
                     <div className={`${styles.bgImg} ${styles.src2}`}></div>
                     <div className={`${styles.bgImg} ${styles.src3}`}></div>
                     <div className={`${styles.bgImg} ${styles.src4}`}></div>
+                    <div className={`${styles.bgImg} ${styles.src5}`}></div>
                 </div>
             </div>
-            
+
             <motion.div
                 initial={{ opacity: 0 }}       // 初期状態（透明）
                 animate={{ opacity: 1 }}       // 表示時（不透明）

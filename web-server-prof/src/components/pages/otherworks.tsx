@@ -8,7 +8,7 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import commonStyles from 'css/common.module.css';
+import commonStyles from 'css/Common.module.css';
 
 /*************************************************
  * otherworks
