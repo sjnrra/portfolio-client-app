@@ -1,0 +1,9 @@
+.aaa {
+    top: 13%;
+    height: 800px;
+    transform: translate(-50%, 0%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+}

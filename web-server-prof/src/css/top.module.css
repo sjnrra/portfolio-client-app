@@ -10,13 +10,6 @@
     width: 100%;
 }
 
-/* --- 全体のBOX定義 ---------------------------------------- */
-/* .box { */
-/* background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
-/* } */
-
 /* --- 背景の指定 ------------------------------------------- */
 .box .bgImg {
     background-repeat: no-repeat;

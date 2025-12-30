@@ -9,7 +9,7 @@ import React, { useState, ReactNode, useEffect } from "react";
 import { motion } from "framer-motion";
 
 //app
-import Modal from "./ArtworksModal";
+import ArtworksModal from "./ArtworksModal";
 import { ArtItemDao } from "./ArtItemDao";
 
 //css
@@ -19,14 +19,13 @@ import styles from "css/Artworks.module.css";
 //json
 import rawData from "data/artimage.json";
 
+/*************************************************
+ * Artworks
+ *************************************************/
 const Data = rawData as Record<string, ArtItemDao>;
 
-/*************************************************
- * artworks
- *************************************************/
 const Artworks: React.FC = () => {
     const [isModalOpen, setModalOpen] = useState(false);
-    const [isPicuteName, setPictureName] = useState<string>("");
     const [isCdNo, setCdNo] = useState<string>("");
     const keys = Object.keys(Data);
 
@@ -60,30 +59,28 @@ const Artworks: React.FC = () => {
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
                 <div style={{ padding: "20px" }}>
-                    <Modal
+                    <ArtworksModal
                         isOpen={isModalOpen}
                         onClose={() => setModalOpen(false)}
-                        name={isPicuteName}
                         cdno={isCdNo}
                     >
                         <button onClick={() => setModalOpen(false)}>閉じる</button>
-                        <h1>{isCdNo}</h1>
-                    </Modal>
+                    </ArtworksModal>
                 </div>
             </motion.div>
 
             <motion.div
-                initial={{ opacity: 0 }}       // 初期状態（透明）
-                animate={{ opacity: 1 }}       // 表示時（不透明）
-                exit={{ opacity: 0 }}          // ページ離脱時（透明）
-                transition={{ duration: 0.5 }} // アニメーション時間
+                initial={{ opacity: 0 }}  
+                animate={{ opacity: 1 }}  
+                exit={{ opacity: 0 }}     
+                transition={{ duration: 1 }}
             >
-                <div className={commonStyles.background1}></div>
+                <div className={commonStyles.common_background}>
                 <div className={styles.box}>
                     <div>
-                        <div>
-                            <p className={styles.description}>今まで作った作品たち</p>
-                        </div>
+                        {/* <div>
+                            <p className={styles.description}>大きめの作品たち</p>
+                        </div> */}
                         <table>
                             <tbody>
                                 {rows.map((row, rowIndex) => (
@@ -96,7 +93,7 @@ const Artworks: React.FC = () => {
                                                         src={item.src}
                                                         onClick={() => {
                                                             setModalOpen(true);
-                                                            setPictureName(item.src);
+                                                            // setPictureName(item.src);
                                                             setCdNo(cdNo);
                                                         }}></img>
                                                 </td>
@@ -108,7 +105,10 @@ const Artworks: React.FC = () => {
                         </table>
                     </div>
                 </div>
+                </div>
             </motion.div>
+            <div></div>
+            {/* <h1>aaa</h1> */}
         </>
     )
 }

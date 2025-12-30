@@ -19,6 +19,7 @@ import Typography from "@mui/material/Typography";
 const Footer: React.FC = () => {
     return (
         <>
+        {/* <h1>aaaa</h1> */}
             <AppBar className="footer" component="footer" position="static" sx={{ backgroundColor: '#363535ff' }}>
             {/* <AppBar component="footer" position="static" color="secondary"> */}
                 <Container maxWidth="md">

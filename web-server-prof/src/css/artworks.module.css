@@ -1,14 +1,23 @@
-/* ************************************************************ */
+.box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding:100px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    padding:40px;
+    width: 100%;
+    font-family: "メイリオ", Meiryo, sans-serif;
+    color: rgb(64, 64, 64);
+}
+
 table {
     border-collapse: collapse;
     width: 80%;
     margin: 20px auto;
-}
-
-th,
-td {
-    padding: 15px;
-    text-align: center;
 }
 
 .artimage {
@@ -16,28 +25,6 @@ td {
     height: 300px;
     display: block;
     transition: filter 0.3s ease;
-}
-
-.box {
-    transform: translate(-50%, 0%);
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 15%;
-    left: 50%;
-    height: 100%;
-    width: 100%;
-}
-
-.description {
-    transform: translate(-50%, 0%);
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    left: 50%;
-    width: 100%;
-    font-family: "メイリオ", Meiryo, sans-serif;
-    color: rgb(64, 64, 64);
 }
 
 .artimage:hover {

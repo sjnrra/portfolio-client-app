@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Typography from '@mui/material/Typography';
 import commonStyles from 'css/Common.module.css';
+import Styles from 'css/About.module.css';
 
 function Blog() {
     return (
@@ -14,7 +15,9 @@ function Blog() {
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
                 <div className={commonStyles.background5}>
+
                 </div>
+                    <img className={Styles.aaa} src="about/2.jpg" />
             </motion.div>
         </>
     )

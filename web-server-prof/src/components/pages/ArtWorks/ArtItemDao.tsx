@@ -3,8 +3,10 @@
  *****************************************************************************/
 export interface ArtItemDao {
   src: string;
+  modal_src: string;
+  detail_info_json?:string;
   name: string;
-  size?: string;        // JSON にない項目は optional にしておくと安全
-  date?: string;
+  size: string;       
+  date: string;
   description?: string;
 }

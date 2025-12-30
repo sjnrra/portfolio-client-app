@@ -61,7 +61,7 @@ export default function DrawerAppBar(props: Props) {
      * Window縮小時のヘッダーバー
      ***************************************/
     const drawer = (
-        <Box className={styles.header} onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h4" sx={{ my: 2 }}>
                 Portforio site
             </Typography>
@@ -95,7 +95,7 @@ export default function DrawerAppBar(props: Props) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav" style={{ color: "#ffffffff", backgroundColor: "#363535ff" }}>
+            <AppBar className={styles.appbar} component="nav" style={{ color: "#ffffffff", backgroundColor: "#363535ff" }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
