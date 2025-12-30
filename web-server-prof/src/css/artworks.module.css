@@ -30,7 +30,14 @@ td {
 }
 
 .description {
-    top: 100px;
+    transform: translate(-50%, 0%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    width: 100%;
+    font-family: "メイリオ", Meiryo, sans-serif;
+    color: rgb(64, 64, 64);
 }
 
 .artimage:hover {

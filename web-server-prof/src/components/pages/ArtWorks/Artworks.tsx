@@ -1,21 +1,25 @@
 /******************************************************************************
- * artworks.tsx
+ * Artworks.tsx
  *****************************************************************************/
 
 /*************************************************
  * import
  *************************************************/
 import React, { useState, ReactNode, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import ReactDOM from "react-dom";
 
 //app
 import Modal from "./ArtworksModal";
+import { ArtItemDao } from "./ArtItemDao";
 
 //css
 import commonStyles from 'css/Common.module.css';
 import styles from "css/Artworks.module.css";
+
+//json
+import rawData from "data/artimage.json";
+
+const Data = rawData as Record<string, ArtItemDao>;
 
 /*************************************************
  * artworks
@@ -23,7 +27,17 @@ import styles from "css/Artworks.module.css";
 const Artworks: React.FC = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isPicuteName, setPictureName] = useState<string>("");
+    const [isCdNo, setCdNo] = useState<string>("");
+    const keys = Object.keys(Data);
 
+    const chunk = (arr: string[], size: number) => {
+        const result = [];
+        for (let i = 0; i < arr.length; i += size) {
+            result.push(arr.slice(i, i + size));
+        }
+        return result;
+    };
+    const rows = chunk(keys, 3); // ← 3件ずつ分割
 
     /**************************************************
      * モーダルウインドウ表示中はスクロール禁止
@@ -45,12 +59,15 @@ const Artworks: React.FC = () => {
                 exit={{ opacity: 0 }}          // ページ離脱時（透明）
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
-                
                 <div style={{ padding: "20px" }}>
-                    <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} name={isPicuteName}>
-                        {/* <h2>モーダルタイトル</h2>
-                    <p>ここにモーダルの内容を入れます。</p> */}
+                    <Modal
+                        isOpen={isModalOpen}
+                        onClose={() => setModalOpen(false)}
+                        name={isPicuteName}
+                        cdno={isCdNo}
+                    >
                         <button onClick={() => setModalOpen(false)}>閉じる</button>
+                        <h1>{isCdNo}</h1>
                     </Modal>
                 </div>
             </motion.div>
@@ -61,30 +78,33 @@ const Artworks: React.FC = () => {
                 exit={{ opacity: 0 }}          // ページ離脱時（透明）
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
-
                 <div className={commonStyles.background1}></div>
                 <div className={styles.box}>
-                    <div className={styles.description}>
-                        {/* <p>今まで作った作品たち</p> */}
-                    </div>
-                    <div className={styles.imageBox}>
+                    <div>
+                        <div>
+                            <p className={styles.description}>今まで作った作品たち</p>
+                        </div>
                         <table>
-                            <tr>
-                                <th><img className={styles.artimage} src="image/top1.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top1.jpg"); }} /></th>
-                                <th><img className={styles.artimage} src="image/top2.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top2.jpg"); }} /></th>
-                                <th><img className={styles.artimage} src="image/top3.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top3.jpg"); }} /></th>
-                            </tr>
-                            <tr>
-                                <th><img className={styles.artimage} src="image/top4.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top4.jpg"); }} /></th>
-                                <th><img className={styles.artimage} src="image/top5.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top5.jpg"); }} /></th>
-                                <th><img className={styles.artimage} src="image/top6.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top6.jpg"); }} /></th>
-                            </tr>
-                            <tr>
-                                <th><img className={styles.artimage} src="image/top7.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top7.jpg"); }} /></th>
-                                <th><img className={styles.artimage} src="image/top8.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top8.jpg"); }} /></th>
-                                {/* <th><img className={styles.artimage} src="image/top10.jpg" alt="test" onClick={() => { setModalOpen(true); setPictureName("image/top10.jpg"); }} /></th> */}
-                                <td></td>
-                            </tr>
+                            <tbody>
+                                {rows.map((row, rowIndex) => (
+                                    <tr key={rowIndex}>
+                                        {row.map((cdNo) => {
+                                            const item = Data[cdNo];
+                                            return (
+                                                <td key={cdNo} style={{ padding: "10px", textAlign: "center" }}>
+                                                    <img className={styles.artimage}
+                                                        src={item.src}
+                                                        onClick={() => {
+                                                            setModalOpen(true);
+                                                            setPictureName(item.src);
+                                                            setCdNo(cdNo);
+                                                        }}></img>
+                                                </td>
+                                            );
+                                        })}
+                                    </tr>
+                                ))}
+                            </tbody>
                         </table>
                     </div>
                 </div>

@@ -14,7 +14,6 @@ function Blog() {
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
                 <div className={commonStyles.background5}>
-
                 </div>
             </motion.div>
         </>

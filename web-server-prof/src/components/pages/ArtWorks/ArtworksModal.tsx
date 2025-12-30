@@ -1,17 +1,22 @@
-// Modal.tsx
 import React, { ReactNode, useEffect } from "react";
+import { Fade, Box } from "@mui/material";
+
 // import "./modal.css";
 import styles1 from "css/ArtworksModal.module.css";
-import { Button, Fade, Box } from "@mui/material";
 
-interface ModalProps {
-  isOpen: boolean;               // モーダル表示フラグ
-  onClose: () => void;           // 閉じる処理
-  children: ReactNode;           // モーダル内コンテンツ
-  name: string;
-}
+//json
+import rawData from "data/artimage.json";
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, name }) => {
+//Dao
+import { ArtItemDao } from "./ArtItemDao";
+import { ArtworksModalDao } from "./ArtworksModalDao";
+
+const Data = rawData as Record<string, ArtItemDao>;
+
+const Modal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, name, cdno }) => {
+
+  const item = Data[cdno];
+
   // ESCキーで閉じる処理
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -29,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, name }) => {
 
   return (
     <>
-        <div className={styles1.modal_overlay} onClick={onClose}>
+      <div className={styles1.modal_overlay} onClick={onClose}>
         <div
           className={styles1.modal_content}
           onClick={(e) => e.stopPropagation()}
@@ -39,8 +44,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, name }) => {
             <Box
               sx={{
                 mt: 2,
-                // width: 200,
-                // height: 100,
                 bgcolor: "white",
                 color: "white",
                 display: "flex",
@@ -49,16 +52,26 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, name }) => {
                 borderRadius: 1,
               }}
             >
-              <img className={styles1.modal_img} src={name} />
+
+              <div className={styles1.modal_imageBox}>
+
+                <table className={styles1.modal_table}>
+
+                  <tr>
+                    {/* image */}
+                    <img className={styles1.modal_img} src={name} />
+                  </tr>
+                  <tr>
+                    <p className={styles1.modal_description}>
+                      作品名：{item.name}    制作年：{item.date}    サイズ：{item.size}
+                    </p>
+                  </tr>
+
+                </table>
+              </div>
+
             </Box>
           </Fade>
-
-
-
-
-
-
-
         </div>
       </div>
     </>

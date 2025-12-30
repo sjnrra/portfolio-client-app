@@ -17,7 +17,6 @@ import { motion } from "framer-motion";
  *************************************************/
 
 function Top() {
-    const [file, setFile] = useState(null);
     return (
         <>
             <div className={styles.point}>
