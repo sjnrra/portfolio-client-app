@@ -20,13 +20,7 @@ table {
     margin: 20px auto;
 }
 
-.artimage {
-    max-width: 300px;
-    height: 300px;
-    display: block;
-    transition: filter 0.3s ease;
-}
-
 .artimage:hover {
-    filter: brightness(113%);
+    cursor: pointer;
+    filter: brightness(108%);
 }

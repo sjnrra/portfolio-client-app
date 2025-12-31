@@ -15,9 +15,13 @@ function Blog() {
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
                 <div className={commonStyles.background5}>
-
+                    <div>
+                        <img className={Styles.aaa} src="about/2.jpg" />
+                    </div>
+                    <div>
+                    </div>
                 </div>
-                    <img className={Styles.aaa} src="about/2.jpg" />
+
             </motion.div>
         </>
     )

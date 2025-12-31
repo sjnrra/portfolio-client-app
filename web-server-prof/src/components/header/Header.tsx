@@ -43,7 +43,7 @@ const setNavLinks: Array<{ text: string, url: string }> = [
     { text: "Art works", url: "/artworks" },
     { text: "Otherworks", url: "/otherworks" },
     { text: "About", url: "/production" },
-    { text: "Blog", url: "/blog" },
+    // { text: "Blog", url: "/blog" },
     { text: "Contact", url: "/contact" }
 ];
 

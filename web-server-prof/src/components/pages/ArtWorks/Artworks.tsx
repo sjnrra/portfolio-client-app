@@ -18,7 +18,7 @@ import styles from "css/Artworks.module.css";
 
 //json
 import rawData from "data/artimage.json";
-
+import { Box, Grid, Paper } from '@mui/material';
 /*************************************************
  * Artworks
  *************************************************/
@@ -70,45 +70,54 @@ const Artworks: React.FC = () => {
             </motion.div>
 
             <motion.div
-                initial={{ opacity: 0 }}  
-                animate={{ opacity: 1 }}  
-                exit={{ opacity: 0 }}     
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
             >
                 <div className={commonStyles.common_background}>
-                <div className={styles.box}>
-                    <div>
-                        {/* <div>
-                            <p className={styles.description}>大きめの作品たち</p>
-                        </div> */}
-                        <table>
-                            <tbody>
-                                {rows.map((row, rowIndex) => (
-                                    <tr key={rowIndex}>
-                                        {row.map((cdNo) => {
-                                            const item = Data[cdNo];
-                                            return (
-                                                <td key={cdNo} style={{ padding: "10px", textAlign: "center" }}>
-                                                    <img className={styles.artimage}
-                                                        src={item.src}
-                                                        onClick={() => {
-                                                            setModalOpen(true);
-                                                            // setPictureName(item.src);
-                                                            setCdNo(cdNo);
-                                                        }}></img>
-                                                </td>
-                                            );
-                                        })}
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className={styles.box}>
+                        <div>
+                            <Box sx={{ width: '100%' }}>
+                                <Grid container spacing={2} >
+                                    {Object.entries(Data).map(([cdno, item]) => (
+                                        <Grid
+                                            size={4}
+                                            display="flex"
+                                            flexDirection="column"
+                                            key={cdno}
+                                            sx={{
+                                                width: {
+                                                    xs: "100%",   // スマホ
+                                                    sm: "100%",   // タブレット
+                                                    md: "48%",   // PC
+                                                    lg: "30%",   // 大画面
+                                                }
+                                            }}
+                                        >
+                                            <Paper className={styles.artimage}
+                                                component="img"
+                                                src={item.src}
+                                                sx={{
+                                                    width: '100%',
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center'
+                                                }}
+                                                onClick={() => {
+                                                    setModalOpen(true);
+                                                    setCdNo(cdno);
+                                                }}
+                                            />
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            </Box>
+                        </div>
                     </div>
-                </div>
                 </div>
             </motion.div>
             <div></div>
-            {/* <h1>aaa</h1> */}
         </>
     )
 }

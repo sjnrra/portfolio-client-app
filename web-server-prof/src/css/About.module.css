@@ -1,9 +1,11 @@
-.aaa {
-    top: 13%;
-    height: 800px;
-    transform: translate(-50%, 0%);
-    position: absolute;
+.box {
     display: flex;
     justify-content: center;
-    left: 50%;
+    width: 100%;
+    padding:100px;
+}
+
+/********* about */
+ul {
+  list-style: none;
 }

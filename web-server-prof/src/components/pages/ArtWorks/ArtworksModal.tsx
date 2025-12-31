@@ -89,7 +89,7 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) =>
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                borderRadius: 2,
+                borderRadius: 2
               }}
             >
               <button className={styles1.modal_close_button} onClick={onClose}>×</button>
