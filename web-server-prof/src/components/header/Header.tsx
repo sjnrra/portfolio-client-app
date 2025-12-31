@@ -73,7 +73,7 @@ export default function DrawerAppBar(props: Props) {
                 alignItems: "flex-start"
             }}>
                 {setNavLinks.map((navLink) => (
-                    <ListItem disablePadding>
+                    <ListItem key={navLink.url} disablePadding>
                         <ListItemButton sx={{
                             textAlign: 'left',
                         }}
@@ -117,13 +117,18 @@ export default function DrawerAppBar(props: Props) {
                         Portforio site
                     </Typography>
 
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }} >
-                        <List component="nav" sx={{
-                            display: 'flex',
-                            justifyContent: 'flex-start'
-                        }}>
+                    <Box
+                        sx={{ display: { xs: 'none', sm: 'block' } }}
+                    >
+                        <List
+                            component="nav"
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'flex-start'
+                            }}
+                        >
                             {setNavLinks.map((navLink) => (
-                                <ListItem disablePadding>
+                                <ListItem key={navLink.url} disablePadding>
                                     <ListItemButton sx={{
                                         textAlign: 'center',
                                         whiteSpace: "nowrap" // 改行とスペースを保持

@@ -65,7 +65,6 @@ export const theme = createTheme({
 function About() {
     return (
         <>
-
             <ThemeProvider theme={theme}>
                 <div className={commonStyles.background5}>
 
@@ -92,7 +91,7 @@ function About() {
                                 <Grid container spacing={2} justifyContent="center">
                                     <Grid sx={{ xs: 12, md: 6 }}>
 
-                                        {/******************************************* 
+                                    {/******************************************* 
                                       *名前 
                                       *******************************************/}
                                         <Box
@@ -236,7 +235,8 @@ function About() {
                                                     marginBottom: "30px"
                                                 }}
                                             >
-                                                ホームページを作成するにあたり、使用した言語やフレームワーク、ライブラリは下記のとおりです。
+                                                ホームページを作成するにあたり、使用した言語やフレームワーク、ライブラリは下記のとおりです。<br></br>
+                                                （どこにでもあるようなものしか使っていません。）
                                                 <TableContainer sx={{
                                                     backgroundColor: "transparent",
                                                     boxShadow: "none",
@@ -271,6 +271,17 @@ function About() {
                                                             <TableRow >
                                                                 <TableCell>フレームワーク／ライブラリ</TableCell>
                                                                 <TableCell>React, MUI(Material UI)</TableCell>
+                                                            </TableRow>
+                                                            <TableRow >
+                                                                <TableCell rowSpan={3}>バックエンド</TableCell>
+                                                            </TableRow>
+                                                            <TableRow >
+                                                                <TableCell >言語</TableCell>
+                                                                <TableCell>Python</TableCell>
+                                                            </TableRow>
+                                                            <TableRow >
+                                                                <TableCell>フレームワーク／ライブラリ</TableCell>
+                                                                <TableCell>FastAPI</TableCell>
                                                             </TableRow>
                                                         </TableBody>
                                                     </Table>
