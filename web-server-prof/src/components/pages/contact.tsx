@@ -130,11 +130,11 @@ function Contact() {
                                                 {/* 名前 */}
                                                 <TextField
                                                     {...register("name", { required: true })}
-                                                    error={!!errors.nameRequired}
+                                                    error={!!errors.name}
                                                     label="お名前"
                                                     // fullWidth
                                                     margin="normal"
-                                                    helperText={errors.nameRequired && "名前を入力してください。"}
+                                                    helperText={errors.name && "名前を入力してください。"}
                                                     slotProps={{
                                                         input: {
                                                             startAdornment: (
@@ -162,11 +162,11 @@ function Contact() {
                                                 {/* メール */}
                                                 <TextField
                                                     {...register("email", { required: true })}
-                                                    error={!!errors.emailRequired}
+                                                    error={!!errors.email}
                                                     label="Eメール"
                                                     type="email"
                                                     margin="normal"
-                                                    helperText={errors.emailRequired && "メールを入力してください。"}
+                                                    helperText={errors.email && "メールを入力してください。"}
                                                     slotProps={{
                                                         input: {
                                                             startAdornment: (
@@ -196,13 +196,13 @@ function Contact() {
                                                 {/* お問い合わせ内容 */}
                                                 <TextField
                                                     {...register("message", { required: true })}
-                                                    error={!!errors.messageRequired}
+                                                    error={!!errors.message}
                                                     label="お問い合わせ内容"
                                                     multiline
                                                     rows={6}
                                                     fullWidth
                                                     margin="normal"
-                                                    helperText={errors.messageRequired && "お問い合わせ内容を入力してください。"}
+                                                    helperText={errors.message && "お問い合わせ内容を入力してください。"}
                                                     style={{
                                                         marginBottom: "1rem",
                                                         marginRight: "1rem",
