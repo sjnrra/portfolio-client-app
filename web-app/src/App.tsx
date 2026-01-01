@@ -8,7 +8,7 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import Top from "./components/top/Top";
+import Top from "./components/pages/top/Top";
 import Artworks from "./components/pages/Artworks/Artworks";
 import Otherworks from "./components/pages/Otherworks";
 import About from "./components/pages/About";
