@@ -6,8 +6,6 @@
  * import
  *************************************************/
 import React from "react";
-//import 'css/Footer.css'
-
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";

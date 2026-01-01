@@ -44,6 +44,7 @@
     background-image: url(image/top/top10.jpg);
     animation-delay: 15s;
 }
+
 .box .src5 {
     background-image: url(image/top/top3.jpg);
     animation-delay: 20s;
@@ -77,21 +78,23 @@
     top: 300px;
     left: 10%;
     position: absolute;
-    width: 35%;
+    /* width: 35%; */
+    /* width: 600px; */
+    width: clamp(350px, 50vw, 600px);
     height: 400px;
     background-color: rgb(255, 255, 255, 0.5);
 }
 
 .top_pop2 {
     position: relative;
-    width:100%;
+    width: 100%;
     top: 20px;
     left: 30px;
 }
 
 .top_pop3 {
     position: relative;
-    width:100%;
+    width: 100%;
     top: 30px;
     left: 30px;
 }
@@ -117,6 +120,6 @@ h2 {
     position: relative;
     display: inline-block;
     top: 20px;
-    left:20px;
+    left: 20px;
     width: 90%;
 }

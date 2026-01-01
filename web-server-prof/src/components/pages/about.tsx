@@ -1,72 +1,45 @@
+/******************************************************************************
+ * About.tsx
+ *****************************************************************************/
+
+/*************************************************
+ * pre shori
+ *************************************************/
 import React from "react";
+import { motion } from "framer-motion";
 
-//css
-import commonStyles from 'css/Common.module.css';
-import styles from "css/About.module.css";
-
-//mui
-import { Grid, Paper } from '@mui/material';
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider } from "@mui/material/styles"
-import { Box, Button, TextField, Typography } from "@mui/material";
+// MUI
 import {
+    Grid,
+    Paper,
+    Box,
+    Typography,
     Table,
     TableBody,
     TableCell,
     TableContainer,
     TableHead,
-    TableRow,
-    // Paper,
-} from "@mui/material";
-import { motion } from "framer-motion";
-import ColorLensIcon from '@mui/icons-material/ColorLens';
+    TableRow
+} from '@mui/material';
+import { ThemeProvider } from "@mui/material/styles";
 
-const data = [
-    { year: "1996", detail: "愛媛県生まれ" },
-    { year: "2013", detail: "第62回秋季愛媛県展 初入選" },
-    { year: "2015", detail: "私立済美高等学校 美術科卒業" },
-    { year: "2016", detail: "第70回記念二紀展 初入選（以降毎年入選）" },
-    { year: "2019", detail: "広島大学 教育学部 第四類造形芸術系コース卒業" },
-    { year: "2022", detail: "第15回記念春季二紀展 初出品(以降毎年出品)" },
-    { year: "2022", detail: "第75回記念二紀展 奨励賞" },
-    { year: "2025", detail: "第78回二紀展 準会員推挙" },
-];
-const data2 = [
-    { year: "1996", detail: "愛媛県生まれ" },
-    { year: "2013", detail: "第62回秋季愛媛県展 初入選" },
-    { year: "2015", detail: "私立済美高等学校 美術科卒業" },
-    { year: "2016", detail: "第70回記念二紀展 初入選（以降毎年入選）" },
-    { year: "2019", detail: "広島大学 教育学部 第四類造形芸術系コース卒業" },
-    { year: "2022", detail: "第15回記念春季二紀展 初出品(以降毎年出品)" },
-    { year: "2022", detail: "第75回記念二紀展 奨励賞" },
-    { year: "2025", detail: "第78回二紀展 準会員推挙" },
-];
+// common
+import Background from "components/pages/common/Background";
+import customiseTypography from "components/pages/common/customize_typography";
+import profileData from "data/profile.json";
 
-export const theme = createTheme({
-    typography: {
-        fontFamily: `"Meiryo", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif`,
-        fontSize: 14,
-        fontWeightLight: 300,
-        fontWeightRegular: 400,
-        fontWeightMedium: 700,
+// export
+export const data = profileData;
+export const theme = customiseTypography
 
-        h1: { fontSize: 60 },
-        h2: { fontSize: 48 },
-        h3: { fontSize: 42 },
-        h4: { fontSize: 36 },
-        h5: { fontSize: 20 },
-        h6: { fontSize: 18 },
-        subtitle1: { fontSize: 18 },
-        body1: { fontSize: 14 },
-        button: { textTransform: 'none' },
-    },
-})
-
-function About() {
+/*************************************************
+ * React.FC About
+ *************************************************/
+const About: React.FC = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <div className={commonStyles.background5}>
+                <Background>
 
                     <motion.div
                         initial={{ opacity: 0 }}       // 初期状態（透明）
@@ -74,14 +47,14 @@ function About() {
                         exit={{ opacity: 0 }}          // ページ離脱時（透明）
                         transition={{ duration: 0.5 }} // アニメーション時間
                     >
-                        <div className={styles.box}>
+
+                        <div>
                             <Box
                                 sx={{
                                     width: '100vh',
-                                    margin: '30px auto',
+                                    margin: '130px auto',
                                     display: "flex",
                                     bgcolor: "white",
-                                    flexDirection: { xs: "column", md: "row" },
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: 3
@@ -89,9 +62,9 @@ function About() {
                             >
 
                                 <Grid container spacing={2} justifyContent="center">
-                                    <Grid sx={{ xs: 12, md: 6 }}>
+                                    <Grid sx={{ xs: 12, sm: 10, md: 8, lg: 6 }}>
 
-                                    {/******************************************* 
+                                        {/******************************************* 
                                       *名前 
                                       *******************************************/}
                                         <Box
@@ -108,19 +81,16 @@ function About() {
                                                 sx={{
                                                     width: 50,
                                                     height: 50,
-                                                    borderRadius: "50%", // ← 円形にする
+                                                    borderRadius: "50%", //円形
                                                     objectFit: "cover",
                                                 }}
                                             />
-                                            <Typography variant="h4">渡部 晋也 (Watanabe Shinya)</Typography>
+                                            <Typography variant="h5">渡部 晋也 (Watanabe Shinya)</Typography>
                                         </Box>
-
-
                                         <Paper
                                             style={{
                                                 margin: "1rem",
                                                 marginBottom: "1rem",
-
                                             }}
                                             sx={{
                                                 width: {
@@ -133,11 +103,9 @@ function About() {
                                                 boxShadow: "none"
                                             }}
                                         >
-
                                             <Typography
                                                 variant="body1"
                                                 sx={{
-                                                    // marginTop: "5px",
                                                     marginBottom: "30px"
                                                 }}
                                             >
@@ -147,25 +115,22 @@ function About() {
                                             {/******************************************* 
                                           *略歴
                                           *******************************************/}
-
                                             <Typography
                                                 variant="h5"
                                                 sx={{
                                                     display: "block",
                                                     position: "relative",
-                                                    paddingBottom: "6px",
                                                     "&::after": {
                                                         content: '""',
                                                         position: "absolute",
                                                         left: 0,
                                                         bottom: 0,
-                                                        width: "95%",
+                                                        // width: "95%",
                                                         height: "2px",
                                                         backgroundColor: "#d8d8d8",
                                                     },
                                                 }}
                                             >
-                                                {/* <ColorLensIcon /> */}
                                                 経歴
                                             </Typography>
                                             <Typography
@@ -213,25 +178,23 @@ function About() {
                                                 sx={{
                                                     display: "block",
                                                     position: "relative",
-                                                    paddingBottom: "6px",
                                                     "&::after": {
                                                         content: '""',
                                                         position: "absolute",
                                                         left: 0,
                                                         bottom: 0,
-                                                        width: "95%",
+                                                        // width: "95%",
                                                         height: "2px",
                                                         backgroundColor: "#d8d8d8",
                                                     },
                                                 }}
                                             >
-                                                {/* <ColorLensIcon /> */}
                                                 このサイトについて
                                             </Typography>
                                             <Typography
                                                 variant="body1"
                                                 sx={{
-                                                    marginTop: "5px",
+                                                    marginTop: "15px",
                                                     marginBottom: "30px"
                                                 }}
                                             >
@@ -246,6 +209,7 @@ function About() {
                                                     component={Paper}>
                                                     <Table
                                                         sx={{
+                                                            marginTop: "10px",
                                                             borderCollapse: "collapse",
                                                             "& td, & th": {
                                                                 padding: "4px 8px",   // ← ここで縦幅を調整
@@ -296,25 +260,22 @@ function About() {
                                                 sx={{
                                                     display: "block",
                                                     position: "relative",
-                                                    paddingBottom: "6px",
                                                     "&::after": {
                                                         content: '""',
                                                         position: "absolute",
                                                         left: 0,
                                                         bottom: 0,
-                                                        width: "95%",
+                                                        // width: "95%",
                                                         height: "2px",
                                                         backgroundColor: "#d8d8d8",
                                                     },
                                                 }}
                                             >
-                                                {/* <ColorLensIcon /> */}
                                                 最近
                                             </Typography>
                                             <Typography
                                                 variant="body1"
                                                 sx={{
-                                                    // margin:"30px",
                                                     marginTop: "15px",
                                                     marginBottom: "100px"
                                                 }}
@@ -339,9 +300,8 @@ function About() {
                             </Box>
                         </div>
                     </motion.div>
-                </div>
+                </Background>
             </ThemeProvider >
-
         </>
     );
 

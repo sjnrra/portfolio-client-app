@@ -1,27 +1,31 @@
 /******************************************************************************
- * Artworks.tsx
+ * ArtworksModal.tsx
  *****************************************************************************/
 
 /*************************************************
  * import
  *************************************************/
-import React, { ReactNode, useEffect } from "react";
-import { Fade, Box } from "@mui/material";
+import React, { useEffect } from "react";
 
-// import "./modal.css";
-import styles1 from "css/ArtworksModal.module.css";
+// MUI
+import { Fade, Box, Paper, Typography, Grid } from '@mui/material';
+import { ThemeProvider } from "@mui/material/styles";
 
-//json
-import rawData from "data/artimage.json";
-
-//Dao
+// common
+//  data
+import artImageData from "data/artimage.json";
 import { ArtItemDao } from "./ArtItemDao";
 import { ArtworksModalDao } from "./ArtworksModalDao";
+//  style
+import customiseTypography from "components/pages/common/customize_typography";
+import styles1 from "css/ArtworksModal.module.css";
+
+export const theme = customiseTypography
 
 /*************************************************
- * ArtworksModal
+ * React.FC ArtworksModal
  *************************************************/
-const Data = rawData as Record<string, ArtItemDao>;
+const Data = artImageData as Record<string, ArtItemDao>;
 
 const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) => {
 
@@ -58,6 +62,7 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) =>
         "--scrollbar-width",
         `${scrollbarWidth}px`
       );
+
     } else {
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
@@ -72,51 +77,66 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) =>
   }, [isOpen]);
 
   if (!isOpen) return null;
-  
+
+  /*****************************************
+  * return
+  *****************************************/
   return (
     <>
-      <div className={styles1.modal_overlay} onClick={onClose}>
-        <div
-          className={styles1.modal_content}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <Fade in={isOpen} timeout={800}>
-            <Box
-              sx={{
-                mt: 2,
-                bgcolor: "white",
-                color: "white",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 2
-              }}
-            >
-              <button className={styles1.modal_close_button} onClick={onClose}>×</button>
-              <div className={styles1.modal_imageBox}>
+      <ThemeProvider theme={theme}>
+        <div className={styles1.modal_overlay} onClick={onClose}>
+          <div
+          // className={styles1.modal_content}
+          // onClick={(e) => e.stopPropagation()}
+          >
+            <Fade in={isOpen} timeout={800}>
+              <Box >
+                <Grid
+                  container
+                  justifyContent="center"
+                >
+                  <Grid
+                    display="flex"
+                    flexDirection="column"
+                    key={cdno}
+                    sx={{
+                      bgcolor: "white",
+                      borderRadius: 2,
+                      width: {
+                        padding: "15px",
+                        xs: "17%",   // スマホ
+                        sm: "21%",   // タブレット
+                        md: "25%",   // PC
+                        lg: "25%",   // 大画面
+                      }
+                    }}
+                  >
+                    {/*************************************
+                      * 作品写真
+                      *************************************/}
+                    <Paper
+                      component="img"
+                      src={item.modal_src}
+                    />
 
-                <table className={styles1.modal_table}>
+                    {/*************************************
+                      * 作品キャプション
+                      *************************************/}
+                    <Typography
+                      sx={{
+                        marginTop: "5px"
+                      }}
+                    >
+                      作品名：{item.name}    制作年：{item.date}    サイズ：{item.size}
+                    </Typography>
 
-                  <tr>
-                    <td>
-                      <img className={styles1.modal_img} src={item.modal_src} />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p className={styles1.modal_description}>
-                        作品名：{item.name}    制作年：{item.date}    サイズ：{item.size}
-                      </p>
-                    </td>
-                  </tr>
-
-                </table>
-              </div>
-
-            </Box>
-          </Fade>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Fade>
+          </div>
         </div>
-      </div>
+      </ThemeProvider>
     </>
   );
 };

@@ -6,6 +6,9 @@
  * import
  *************************************************/
 import * as React from 'react';
+import { Link } from "react-router-dom";
+
+// MUI
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -19,12 +22,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { Link } from "react-router-dom";
 import ColorLensIcon from '@mui/icons-material/ColorLens';
-
-//css
-import styles from "css/Header.module.css";
 
 /*************************************************
  * interface Props
@@ -42,15 +40,14 @@ const setNavLinks: Array<{ text: string, url: string }> = [
     { text: "Top", url: "/" },
     { text: "Art works", url: "/artworks" },
     { text: "Otherworks", url: "/otherworks" },
-    { text: "About", url: "/production" },
-    // { text: "Blog", url: "/blog" },
+    { text: "About", url: "/about" },
     { text: "Contact", url: "/contact" }
 ];
 
 /*************************************************
  * function DrawerAppBar
  *************************************************/
-export default function DrawerAppBar(props: Props) {
+const Header: React.FC<Props> = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const handleDrawerToggle = () => {
@@ -95,7 +92,7 @@ export default function DrawerAppBar(props: Props) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar className={styles.appbar} component="nav" style={{ color: "#ffffffff", backgroundColor: "#363535ff" }}>
+            <AppBar component="nav" style={{ color: "#ffffffff", backgroundColor: "#363535ff" }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -168,3 +165,5 @@ export default function DrawerAppBar(props: Props) {
         </Box>
     );
 }
+
+export default Header;

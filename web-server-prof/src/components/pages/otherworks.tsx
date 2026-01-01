@@ -6,15 +6,16 @@
  * import
  *************************************************/
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import commonStyles from 'css/Common.module.css';
+import { Box, Grid, Paper } from '@mui/material';
+import Background from "components/pages/common/Background";
 
 /*************************************************
- * Otherworks
+ * React.FC Otherworks
  *************************************************/
-function otherworks() {
-    return(
+const Otherworks: React.FC = () => {
+
+    return (
         <>
             <motion.div
                 initial={{ opacity: 0 }}       // 初期状態（透明）
@@ -22,10 +23,12 @@ function otherworks() {
                 exit={{ opacity: 0 }}          // ページ離脱時（透明）
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
-                <div className={commonStyles.background3}></div>
+                <Background >
+                    <h1></h1>
+                </Background>
             </motion.div>
         </>
     )
 }
 
-export default otherworks;
+export default Otherworks;

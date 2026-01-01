@@ -5,18 +5,16 @@
 /*************************************************
  * import
  *************************************************/
-import React, { useState } from "react";
-// css
-import styles from "css/Top.module.css";
-// @mui
+import React from "react";
 import Typography from '@mui/material/Typography';
 import { motion } from "framer-motion";
+// css
+import styles from "css/Top.module.css";
 
 /*************************************************
- * Top
+ * React.FC Top
  *************************************************/
-
-function Top() {
+const Top: React.FC = () => {
     return (
         <>
             <div className={styles.point}>
@@ -30,10 +28,10 @@ function Top() {
             </div>
 
             <motion.div
-                initial={{ opacity: 0 }}       // 初期状態（透明）
-                animate={{ opacity: 1 }}       // 表示時（不透明）
-                exit={{ opacity: 0 }}          // ページ離脱時（透明）
-                transition={{ duration: 0.7 }} // アニメーション時間
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7 }}
             >
                 <div className={styles.top_pop1}>
                     <div className={styles.top_pop2}>
