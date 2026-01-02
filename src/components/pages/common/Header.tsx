@@ -37,9 +37,14 @@ interface Props {
 
 const drawerWidth = 240;
 const setNavLinks: Array<{ text: string, url: string }> = [
+    // { text: "Top", url: "/portfolio-client-app/" },
+    // { text: "Art works", url: "/portfolio-client-app/artworks" },
+    // { text: "Other works", url: "/portfolio-client-app/otherworks" },
+    // { text: "About", url: "/portfolio-client-app/about" },
+    // { text: "Contact", url: "/portfolio-client-app/contact" }
     { text: "Top", url: "/" },
     { text: "Art works", url: "/artworks" },
-    { text: "Otherworks", url: "/otherworks" },
+    { text: "Other works", url: "/otherworks" },
     { text: "About", url: "/about" },
     { text: "Contact", url: "/contact" }
 ];

@@ -103,9 +103,9 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) =>
                       bgcolor: "white",
                       borderRadius: 2,
                       width: {
-                        padding: "15px",
-                        xs: "17%",   // スマホ
-                        sm: "21%",   // タブレット
+                        padding: "10px",
+                        xs: "12%",   // スマホ
+                        sm: "18%",   // タブレット
                         md: "25%",   // PC
                         lg: "25%",   // 大画面
                       }

@@ -6,13 +6,13 @@
  * import
  *************************************************/
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Top from "./components/pages/top/Top";
-import Artworks from "./components/pages/Artworks/Artworks";
+import Artworks from "./components/pages/artworks/Artworks";
 import Otherworks from "./components/pages/Otherworks";
 import About from "./components/pages/About";
-import Contact from "./components/pages/Contact/Contact";
+import Contact from "./components/pages/contact/Contact";
 import Header from './components/pages/common/Header'
 import Footer from './components/pages/common/Footer'
 
@@ -33,6 +33,7 @@ function App() {
       </Routes>
       <Footer />
     </>
-  )
+  );
 }
+
 export default App;

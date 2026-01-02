@@ -38,31 +38,37 @@ export const theme = customiseTypography
 const About: React.FC = () => {
     return (
         <>
-            <ThemeProvider theme={theme}>
-                <Background>
-
+            <Background>
+                <ThemeProvider theme={theme}>
+                    {/****************************************************
+                      * about
+                      ****************************************************/}
                     <motion.div
                         initial={{ opacity: 0 }}       // 初期状態（透明）
                         animate={{ opacity: 1 }}       // 表示時（不透明）
                         exit={{ opacity: 0 }}          // ページ離脱時（透明）
                         transition={{ duration: 0.5 }} // アニメーション時間
                     >
-
-                        <div>
-                            <Box
-                                sx={{
-                                    width: '100vh',
-                                    margin: '130px auto',
-                                    display: "flex",
-                                    bgcolor: "white",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    borderRadius: 3
-                                }}
-                            >
-
-                                <Grid container spacing={2} justifyContent="center">
-                                    <Grid sx={{ xs: 12, sm: 10, md: 8, lg: 6 }}>
+                        <Box
+                            sx={{
+                                minHeight: '30vh',
+                                margin: '100px auto',
+                                bgcolor: "white",
+                                display: "flex",
+                                borderRadius: 3,
+                                width: {
+                                    // padding: "5px",
+                                    xs: "100%",   // スマホ
+                                    sm: "70%",   // タブレット
+                                    md: "50%",   // PC
+                                    lg: "50%",   // 大画面
+                                }
+                            }}
+                        >
+                            <Grid>
+                                <Grid
+                                >
+                                    <Box sx={{ p: 3 }} >
 
                                         {/******************************************* 
                                       *名前 
@@ -94,10 +100,10 @@ const About: React.FC = () => {
                                             }}
                                             sx={{
                                                 width: {
-                                                    xs: "50%",   // スマホ
-                                                    sm: "70%",   // タブレット
-                                                    md: "100%",   // PC
-                                                    lg: "100%",   // 大画面
+                                                    xs: "95%",   // スマホ
+                                                    sm: "95%",   // タブレット
+                                                    md: "60%",   // PC
+                                                    lg: "60%",   // 大画面
                                                 },
                                                 backgroundColor: "transparent",
                                                 boxShadow: "none"
@@ -117,19 +123,6 @@ const About: React.FC = () => {
                                           *******************************************/}
                                             <Typography
                                                 variant="h5"
-                                                sx={{
-                                                    display: "block",
-                                                    position: "relative",
-                                                    "&::after": {
-                                                        content: '""',
-                                                        position: "absolute",
-                                                        left: 0,
-                                                        bottom: 0,
-                                                        // width: "95%",
-                                                        height: "2px",
-                                                        backgroundColor: "#d8d8d8",
-                                                    },
-                                                }}
                                             >
                                                 経歴
                                             </Typography>
@@ -144,8 +137,6 @@ const About: React.FC = () => {
                                                     sx={{
                                                         backgroundColor: "transparent",
                                                         boxShadow: "none",
-                                                        height: "80%",
-                                                        width: "80%"
                                                     }}
                                                     component={Paper}
                                                 >
@@ -175,36 +166,22 @@ const About: React.FC = () => {
                                           *******************************************/}
                                             <Typography
                                                 variant="h5"
-                                                sx={{
-                                                    display: "block",
-                                                    position: "relative",
-                                                    "&::after": {
-                                                        content: '""',
-                                                        position: "absolute",
-                                                        left: 0,
-                                                        bottom: 0,
-                                                        // width: "95%",
-                                                        height: "2px",
-                                                        backgroundColor: "#d8d8d8",
-                                                    },
-                                                }}
                                             >
                                                 このサイトについて
                                             </Typography>
                                             <Typography
                                                 variant="body1"
                                                 sx={{
-                                                    marginTop: "15px",
+                                                    marginTop: "5px",
                                                     marginBottom: "30px"
                                                 }}
+
                                             >
                                                 ホームページを作成するにあたり、使用した言語やフレームワーク、ライブラリは下記のとおりです。<br></br>
                                                 （どこにでもあるようなものしか使っていません。）
                                                 <TableContainer sx={{
                                                     backgroundColor: "transparent",
                                                     boxShadow: "none",
-                                                    height: "80%",
-                                                    width: "80%"
                                                 }}
                                                     component={Paper}>
                                                     <Table
@@ -257,19 +234,6 @@ const About: React.FC = () => {
                                               *******************************************/}
                                             <Typography
                                                 variant="h5"
-                                                sx={{
-                                                    display: "block",
-                                                    position: "relative",
-                                                    "&::after": {
-                                                        content: '""',
-                                                        position: "absolute",
-                                                        left: 0,
-                                                        bottom: 0,
-                                                        // width: "95%",
-                                                        height: "2px",
-                                                        backgroundColor: "#d8d8d8",
-                                                    },
-                                                }}
                                             >
                                                 最近
                                             </Typography>
@@ -286,22 +250,21 @@ const About: React.FC = () => {
                                                     component="img"
                                                     src="about/2.jpg"
                                                     sx={{
-                                                        width: '95%',
+                                                        width: '100%',
                                                         display: 'flex',
                                                         justifyContent: 'center',
                                                         alignItems: 'center'
                                                     }}
                                                 />
                                             </Typography>
-
                                         </Paper>
-                                    </Grid>
+                                    </Box>
                                 </Grid>
-                            </Box>
-                        </div>
-                    </motion.div>
-                </Background>
-            </ThemeProvider >
+                            </Grid>
+                        </Box>
+                    </motion.div >
+                </ThemeProvider >
+            </Background >
         </>
     );
 

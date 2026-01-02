@@ -24,7 +24,7 @@ const Otherworks: React.FC = () => {
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
                 <Background >
-                    <h1></h1>
+                    <h1>工事中</h1>
                 </Background>
             </motion.div>
         </>

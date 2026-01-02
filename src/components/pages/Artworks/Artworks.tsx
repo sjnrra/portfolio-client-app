@@ -56,7 +56,7 @@ const Artworks: React.FC = () => {
                         exit={{ opacity: 0 }}          // ページ離脱時（透明）
                         transition={{ duration: 0.5 }} // アニメーション時間
                     >
-                        <div style={{ padding: "20px" }}>
+                        <div style={{ padding: "40px" }}>
                             <ArtworksModal
                                 isOpen={isModalOpen}
                                 onClose={() => setModalOpen(false)}
@@ -78,7 +78,7 @@ const Artworks: React.FC = () => {
                             <div>
                                 <Box
                                     sx={{
-                                        padding: "100px",
+                                        padding: "40px",
                                     }}
                                 >
                                     <Grid

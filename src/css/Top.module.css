@@ -22,6 +22,8 @@
     right: 0;
     opacity: 0;
     animation: bgAnime 25s infinite;
+    height: 1000px;
+    width: 100%;
     /* 4画像 × 各5s = 20s */
 }
 
@@ -73,47 +75,47 @@
 }
 
 .top_pop1 {
+
+}
+
+.top_pop12 {
     font-family: "メイリオ", Meiryo, sans-serif;
     color: rgb(64, 64, 64);
     top: 300px;
-    left: 10%;
+    left: 8%;
     position: absolute;
-    /* width: 35%; */
-    /* width: 600px; */
-    width: clamp(350px, 50vw, 600px);
     height: 400px;
     background-color: rgb(255, 255, 255, 0.5);
+    
 }
 
 .top_pop2 {
     position: relative;
-    width: 100%;
-    top: 20px;
-    left: 30px;
+    left: 3%;
 }
 
 .top_pop3 {
     position: relative;
-    width: 100%;
     top: 30px;
-    left: 30px;
+    left: 3%;
 }
+
 
 h1 {
     font-size: 50px;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .top_info {
     position: relative;
     display: inline-block;
     padding: 8px 12px;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #5e5e5e;
     top: 10px;
-    width: 90%;
+    width: 100%;
 }
 
 .top_info_data {

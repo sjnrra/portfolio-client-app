@@ -164,10 +164,10 @@ const Contact: React.FC = () => {
                                                 }}
                                                 sx={{
                                                     width: {
-                                                        xs: "60%",   // スマホ
-                                                        sm: "60%",   // タブレット
-                                                        md: "60%",   // PC
-                                                        lg: "60%",   // 大画面
+                                                        xs: "100%",   // スマホ
+                                                        sm: "100%",   // タブレット
+                                                        md: "100%",   // PC
+                                                        lg: "100%",   // 大画面
                                                     }
                                                 }}
                                             />
@@ -197,10 +197,10 @@ const Contact: React.FC = () => {
                                                 }}
                                                 sx={{
                                                     width: {
-                                                        xs: "60%",   // スマホ
-                                                        sm: "60%",   // タブレット
-                                                        md: "60%",   // PC
-                                                        lg: "60%",   // 大画面
+                                                        xs: "100%",   // スマホ
+                                                        sm: "100%",   // タブレット
+                                                        md: "100%",   // PC
+                                                        lg: "100%",   // 大画面
                                                     },
                                                     mb: 2
                                                 }}
@@ -214,7 +214,7 @@ const Contact: React.FC = () => {
                                                 error={!!errors.message}
                                                 label="お問い合わせ内容"
                                                 multiline
-                                                rows={6}
+                                                rows={9}
                                                 fullWidth
                                                 margin="normal"
                                                 helperText={errors.message && "お問い合わせ内容を入力してください。"}
@@ -225,8 +225,8 @@ const Contact: React.FC = () => {
                                                 }}
                                                 sx={{
                                                     width: {
-                                                        xs: "60%",   // スマホ
-                                                        sm: "85%",   // タブレット
+                                                        xs: "100%",   // スマホ
+                                                        sm: "100%",   // タブレット
                                                         md: "100%",   // PC
                                                         lg: "100%",   // 大画面
                                                     },
