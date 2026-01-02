@@ -60,7 +60,7 @@ const About: React.FC = () => {
                                 width: {
                                     // padding: "5px",
                                     xs: "97%",   // スマホ
-                                    sm: "90%",   // タブレット
+                                    sm: "80%",   // タブレット
                                     md: "100%",   // PC
                                     lg: "100%",   // 大画面
                                 }
