@@ -51,22 +51,23 @@ const About: React.FC = () => {
                     >
                         <Box
                             sx={{
+                                // width: '100%',
                                 minHeight: '30vh',
-                                margin: '100px auto',
+                                margin: '120px auto',
                                 bgcolor: "white",
                                 display: "flex",
                                 borderRadius: 3,
                                 width: {
                                     // padding: "5px",
-                                    xs: "100%",   // スマホ
-                                    sm: "70%",   // タブレット
-                                    md: "50%",   // PC
-                                    lg: "50%",   // 大画面
+                                    xs: "97%",   // スマホ
+                                    sm: "90%",   // タブレット
+                                    md: "100%",   // PC
+                                    lg: "100%",   // 大画面
                                 }
                             }}
                         >
                             <Grid>
-                                <Grid
+                                <Grid 
                                 >
                                     <Box sx={{ p: 3 }} >
 
@@ -100,10 +101,10 @@ const About: React.FC = () => {
                                             }}
                                             sx={{
                                                 width: {
-                                                    xs: "95%",   // スマホ
-                                                    sm: "95%",   // タブレット
-                                                    md: "60%",   // PC
-                                                    lg: "60%",   // 大画面
+                                                    xs: "97%",   // スマホ
+                                                    sm: "97%",   // タブレット
+                                                    md: "97%",   // PC
+                                                    lg: "97%",   // 大画面
                                                 },
                                                 backgroundColor: "transparent",
                                                 boxShadow: "none"

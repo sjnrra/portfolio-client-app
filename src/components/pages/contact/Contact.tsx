@@ -114,16 +114,24 @@ const Contact: React.FC = () => {
                     >
                         <Box
                             sx={{
-                                width: '100%',
+                                // width: '100%',
                                 minHeight: '30vh',
                                 margin: '30px auto',
                                 bgcolor: "white",
                                 display: "flex",
-                                borderRadius: 3
+                                borderRadius: 3,
+                                width: {
+                                    // padding: "5px",
+                                    xs: "97%",   // スマホ
+                                    sm: "100%",   // タブレット
+                                    md: "100%",   // PC
+                                    lg: "100%",   // 大画面
+                                }
+
                             }}
                         >
                             <Grid>
-                                <Grid sx={{ xs: 12, sm: 10, md: 8, lg: 6 }}>
+                                <Grid>
                                     <Box sx={{ p: 3 }} >
 
                                         <Typography

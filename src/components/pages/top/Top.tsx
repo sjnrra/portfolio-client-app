@@ -40,31 +40,19 @@ const Top: React.FC = () => {
                 <Box className={styles.top_pop12}
                     sx={{
                         width: {
-                            // padding: "5px",
                             xs: "85%",   // スマホ
                             sm: "60%",   // タブレット
                             md: "45%",   // PC
                             lg: "40%",   // 大画面
                         },
                         minHeight: '30vh',
-                        display: "flex",
                         borderRadius: 3
                     }}
                 >
                     <Grid>
-                        <Grid
-                            display="flex"
-                            flexDirection="column"
-                            sx={{
-                                width: {
-                                    xs: "100%",   // スマホ
-                                    sm: "100%",   // タブレット
-                                    md: "100%",   // PC
-                                    lg: "100%",   // 大画面
-                                }
-                            }}
-                        >
-                            <Box sx={{ p: 1 }} >
+                        <Grid>
+                            <Box
+                                sx={{ p: 1 }} >
                                 <div className={styles.top_pop2}>
                                     <Typography>
                                         <h1 className={styles.top_pop2_name1}>Watanabe Shinya</h1>
@@ -90,21 +78,6 @@ const Top: React.FC = () => {
                         </Grid>
                     </Grid>
                 </Box>
-
-                {/* <div className={styles.top_pop1}>
-                    <div className={styles.top_pop2}>
-                        <Typography>
-                            <h1 className={styles.top_pop2_name1}>Watanabe Shinya</h1>
-                            <h2 className={styles.top_pop2_name2}>渡部 晋也 作品集</h2>
-                        </Typography>
-                    </div>
-                    <div className={styles.top_pop3}>
-                        <Typography>
-                            <p className={styles.top_info}>information</p>
-                            <p className={styles.top_info_data}>2025/12/28　　新規作成</p>
-                        </Typography>
-                    </div>
-                </div> */}
             </motion.div>
         </>
     )

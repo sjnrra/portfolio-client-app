@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-.point {
-    position: relative;
-    height: 1000px;
-    width: 100%;
-}
-
 /* --- 背景の指定 ------------------------------------------- */
 .box .bgImg {
     background-repeat: no-repeat;
@@ -74,10 +68,6 @@
     }
 }
 
-.top_pop1 {
-
-}
-
 .top_pop12 {
     font-family: "メイリオ", Meiryo, sans-serif;
     color: rgb(64, 64, 64);
@@ -85,8 +75,7 @@
     left: 8%;
     position: absolute;
     height: 400px;
-    background-color: rgb(255, 255, 255, 0.5);
-    
+    background-color: rgb(255, 255, 255, 0.5);    
 }
 
 .top_pop2 {
@@ -115,7 +104,7 @@ h2 {
     padding: 8px 12px;
     border-bottom: 2px solid #5e5e5e;
     top: 10px;
-    width: 100%;
+    width: 93%;
 }
 
 .top_info_data {
