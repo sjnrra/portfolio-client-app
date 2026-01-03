@@ -5,9 +5,7 @@
 /*************************************************
  * import
  *************************************************/
-// import React from "react";
-// import Typography from '@mui/material/Typography';
-import { Box, Button, TextField, Snackbar, Alert, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import IconButton from "@mui/material/IconButton";
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -16,7 +14,7 @@ import styles from "css/Top.module.css";
 import Background from "components/pages/common/Background_top";
 import customiseTypography from "components/pages/common/customize_typography";
 import { ThemeProvider } from "@mui/material/styles";
-import React, { useEffect, useState } from "react";
+
 export const theme = customiseTypography
 
 /*************************************************
@@ -27,23 +25,12 @@ const Top: React.FC = () => {
         <>
             <Background>
                 <ThemeProvider theme={theme}>
-                    {/* <div className={styles.point}>
-                <div className={styles.box}>
-                    <div className={`${styles.bgImg} ${styles.src1}`}></div>
-                    <div className={`${styles.bgImg} ${styles.src2}`}></div>
-                    <div className={`${styles.bgImg} ${styles.src3}`}></div>
-                    <div className={`${styles.bgImg} ${styles.src4}`}></div>
-                    <div className={`${styles.bgImg} ${styles.src5}`}></div>
-                </div>
-            </div> */}
-
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.7 }}
                     >
-
                         <Box className={styles.top_pop12}
                             sx={{
                                 width: {
@@ -80,7 +67,6 @@ const Top: React.FC = () => {
                                                 <br></br><br></br><br></br>
                                             </Typography>
                                         </div>
-                                        {/* </div>                                     */}
                                     </Box>
                                 </Grid>
                             </Grid>

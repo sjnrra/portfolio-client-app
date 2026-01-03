@@ -47,9 +47,7 @@ export const Background: React.FC<BackgroundProps> = ({ children }) => {
                 //フェードイン
                 setFade(true);
             }, 800);
-
         }, 4000);
-
         return () => clearInterval(interval);
     }, []);
 
@@ -60,9 +58,17 @@ export const Background: React.FC<BackgroundProps> = ({ children }) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                position: "absolute",
+                inset: 0,
+                backgroundImage: `url(${images[index]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                transition: "opacity 1s ease-in-out",
+                opacity: fade ? 1 : 0,
             }}
         >
-            <Box
+            {/* <Box
                 sx={{
                     position: "absolute",
                     inset: 0,
@@ -73,7 +79,7 @@ export const Background: React.FC<BackgroundProps> = ({ children }) => {
                     transition: "opacity 1s ease-in-out",
                     opacity: fade ? 1 : 0,
                 }}
-            />
+            /> */}
             {children}
         </Box>
     );
