@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-// import React from "react";
 import React, { useEffect, useState } from "react";
 
 type BackgroundProps = {
@@ -58,28 +57,13 @@ export const Background: React.FC<BackgroundProps> = ({ children }) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                position: "absolute",
                 inset: 0,
                 backgroundImage: `url(${images[index]})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
                 transition: "opacity 1s ease-in-out",
                 opacity: fade ? 1 : 0,
             }}
         >
-            {/* <Box
-                sx={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundImage: `url(${images[index]})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    transition: "opacity 1s ease-in-out",
-                    opacity: fade ? 1 : 0,
-                }}
-            /> */}
             {children}
         </Box>
     );

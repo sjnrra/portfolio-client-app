@@ -9,11 +9,11 @@ import { Box, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import IconButton from "@mui/material/IconButton";
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { ThemeProvider } from "@mui/material/styles";
 // css
 import styles from "css/Top.module.css";
 import Background from "components/pages/common/Background_top";
 import customiseTypography from "components/pages/common/customize_typography";
-import { ThemeProvider } from "@mui/material/styles";
 
 export const theme = customiseTypography
 
@@ -35,9 +35,9 @@ const Top: React.FC = () => {
                             sx={{
                                 width: {
                                     xs: "85%",   // スマホ
-                                    sm: "60%",   // タブレット
-                                    md: "30%",   // PC
-                                    lg: "30%",   // 大画面
+                                    sm: "70%",   // タブレット
+                                    md: "50%",   // PC
+                                    lg: "35%",   // 大画面
                                 },
                                 borderRadius: 3
                             }}
@@ -48,7 +48,7 @@ const Top: React.FC = () => {
                                         sx={{ p: 1 }} >
                                         <div className={styles.top_pop2}>
                                             <Typography>
-                                                <h1 className={styles.top_pop2_name1}>Watanabe Shinya</h1>
+                                                <h1 className={styles.top_pop2_name1}>Watanabe<br></br> Shinya</h1>
                                                 <h2 className={styles.top_pop2_name2}>渡部 晋也 作品集</h2>
                                             </Typography>
                                         </div>
