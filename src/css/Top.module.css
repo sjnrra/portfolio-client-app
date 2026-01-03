@@ -3,114 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* --- 背景の指定 ------------------------------------------- */
-.box .bgImg {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    opacity: 0;
-    animation: bgAnime 25s infinite;
-    height: 1000px;
-    width: 100%;
-    /* 4画像 × 各5s = 20s */
-}
-
-/* --- 段差で背景画像のアニメーションを実行 ----------------- */
-.box .src1 {
-    background-image: url(image/top/top1.jpg);
-}
-
-.box .src2 {
-    background-image: url(image/top/top2.jpg);
-    animation-delay: 5s;
-}
-
-.box .src3 {
-    background-image: url(image/top/top4.jpg);
-    animation-delay: 10s;
-}
-
-.box .src4 {
-    background-image: url(image/top/top10.jpg);
-    animation-delay: 15s;
-}
-
-.box .src5 {
-    background-image: url(image/top/top3.jpg);
-    animation-delay: 20s;
-}
-
-@keyframes bgAnime {
-    0% {
-        opacity: 0;
-    }
-
-    5% {
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    30% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
 .top_pop12 {
-    font-family: "メイリオ", Meiryo, sans-serif;
+    padding:30px;
     color: rgb(64, 64, 64);
-    top: 300px;
+    top: 25%;
     left: 8%;
     position: absolute;
-    height: 400px;
     background-color: rgb(255, 255, 255, 0.5);    
 }
 
-.top_pop2 {
-    position: relative;
-    left: 3%;
-}
-
-.top_pop3 {
-    position: relative;
-    top: 30px;
-    left: 3%;
-}
-
-
 h1 {
+    line-height: 1.0; 
     font-size: 50px;
 }
 
 h2 {
+    padding-top:10px;
     font-size: 20px;
 }
 
 .top_info {
-    position: relative;
-    display: inline-block;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-bottom: 2px solid #5e5e5e;
-    top: 10px;
-    width: 93%;
-}
-
-.top_info_data {
-    position: relative;
-    display: inline-block;
-    top: 20px;
-    left: 20px;
-    width: 90%;
 }
