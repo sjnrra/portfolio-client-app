@@ -18,9 +18,6 @@ export const Background: React.FC <BackgroundProps> = ({ children }) => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                justifyContent: "center", // 横中央 
-                alignItems: "center", // 縦中央
-                // display: "flex",
             }}
         >
              {children}

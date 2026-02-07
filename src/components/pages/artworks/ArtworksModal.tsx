@@ -85,10 +85,6 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) =>
     <>
       <ThemeProvider theme={theme}>
         <div className={styles1.modal_overlay} onClick={onClose}>
-          <div
-          // className={styles1.modal_content}
-          // onClick={(e) => e.stopPropagation()}
-          >
             <Fade in={isOpen} timeout={800}>
               <Box >
                 <Grid
@@ -116,7 +112,7 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) =>
                       *************************************/}
                     <Paper
                       component="img"
-                      src={item.modal_src}
+                      src={process.env.PUBLIC_URL + "/" + item.modal_src}
                     />
 
                     {/*************************************
@@ -135,7 +131,6 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno }) =>
               </Box>
             </Fade>
           </div>
-        </div>
       </ThemeProvider>
     </>
   );

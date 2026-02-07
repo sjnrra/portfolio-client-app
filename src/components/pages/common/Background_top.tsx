@@ -11,12 +11,11 @@ type BackgroundProps = {
 
 const images = [
     `${process.env.PUBLIC_URL}/image/top1.jpg`,
+    `${process.env.PUBLIC_URL}/image/top13.jpg`,
     `${process.env.PUBLIC_URL}/image/top2.jpg`,
-    // `${process.env.PUBLIC_URL}/image/top3.jpg`,
     `${process.env.PUBLIC_URL}/image/top10.jpg`,
     `${process.env.PUBLIC_URL}/image/top11.jpg`,
-    // `${process.env.PUBLIC_URL}/image/top5.jpg`,
-    `${process.env.PUBLIC_URL}/image/top6.jpg`
+
 ];
 
 export const Background: React.FC<BackgroundProps> = ({ children }) => {
@@ -45,8 +44,8 @@ export const Background: React.FC<BackgroundProps> = ({ children }) => {
                 setIndex((prev) => (prev + 1) % images.length);
                 //フェードイン
                 setFade(true);
-            }, 800);
-        }, 4000);
+            }, 1500);
+        }, 30000);
         return () => clearInterval(interval);
     }, []);
 
@@ -60,7 +59,7 @@ export const Background: React.FC<BackgroundProps> = ({ children }) => {
                 inset: 0,
                 backgroundImage: `url(${images[index]})`,
                 backgroundSize: "cover",
-                transition: "opacity 1s ease-in-out",
+                transition: "opacity 0.5s ease-in-out",
                 opacity: fade ? 1 : 0,
             }}
         >

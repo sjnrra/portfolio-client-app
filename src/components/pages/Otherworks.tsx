@@ -8,7 +8,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Box, Grid, Paper } from '@mui/material';
-import Background from "components/pages/common/Background";
+import Background from "components/pages/common/Background_artworks";
 
 /*************************************************
  * React.FC Otherworks
@@ -24,7 +24,16 @@ const Otherworks: React.FC = () => {
                 transition={{ duration: 0.5 }} // アニメーション時間
             >
                 <Background >
-                    <h1>工事中</h1>
+                    <Grid
+                        container
+                        alignItems="center" // 縦中央
+                        justifyContent="center"
+                        sx={{
+                            minHeight: "90vh"
+                        }}
+                    >
+                        <h1>工事中</h1>
+                    </Grid>
                 </Background>
             </motion.div>
         </>

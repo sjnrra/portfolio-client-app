@@ -5,11 +5,11 @@
 /*************************************************
  * import
  *************************************************/
-import React, { useState, ReactNode, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 // MUI
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { Box, Grid, Paper } from '@mui/material';
 
 // common
@@ -56,7 +56,8 @@ const Artworks: React.FC = () => {
                         exit={{ opacity: 0 }}          // ページ離脱時（透明）
                         transition={{ duration: 0.5 }} // アニメーション時間
                     >
-                        <div style={{ padding: "40px" }}>
+                        {/* <div style={{ padding: "40px" }}></div> */}
+                        <div>
                             <ArtworksModal
                                 isOpen={isModalOpen}
                                 onClose={() => setModalOpen(false)}
@@ -95,14 +96,14 @@ const Artworks: React.FC = () => {
                                                     width: {
                                                         xs: "100%",   // スマホ
                                                         sm: "100%",   // タブレット
-                                                        md: "48%",   // PC
+                                                        md: "45%",   // PC
                                                         lg: "30%",   // 大画面
                                                     }
                                                 }}
                                             >
                                                 <Paper className={styles.artimage}
                                                     component="img"
-                                                    src={item.src}
+                                                    src={process.env.PUBLIC_URL + "/" + item.src}
                                                     onClick={() => {
                                                         setModalOpen(true);
                                                         setCdNo(cdno);

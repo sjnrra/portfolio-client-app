@@ -15,6 +15,7 @@ import About from "./components/pages/About";
 import Contact from "./components/pages/contact/Contact";
 import Header from './components/pages/common/Header'
 import Footer from './components/pages/common/Footer'
+import Toolbar from '@mui/material/Toolbar';
 
 /*************************************************
  * App
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <Header />
+      <Toolbar />
       <Routes>
         <Route path="/" element={<Top />} />
         <Route path="/artworks" element={<Artworks />} />

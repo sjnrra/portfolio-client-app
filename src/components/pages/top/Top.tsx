@@ -60,11 +60,13 @@ const Top: React.FC = () => {
                                         >
                                             <InstagramIcon fontSize="large" />
                                         </IconButton>
-                                        <div className={styles.top_pop3}>
+                                        <div>
                                             <Typography>
                                                 <p className={styles.top_info}>information</p>
-                                                <p className={styles.top_info_data}>2025/12/28　　新規作成</p>
-                                                <br></br><br></br><br></br>
+                                                {/* <br/> */}
+                                                2025/12/28　　新規作成  <br/>
+                                                2026/03/xx　　作品追加、ホームページ修正
+                                                <br/><br/><br/>
                                             </Typography>
                                         </div>
                                     </Box>
