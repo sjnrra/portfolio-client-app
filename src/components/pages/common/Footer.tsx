@@ -17,13 +17,12 @@ import Typography from "@mui/material/Typography";
 const Footer: React.FC = () => {
     return (
         <>
-        {/* <h1>aaaa</h1> */}
             <AppBar className="footer" component="footer" position="static" sx={{ backgroundColor: '#363535ff' }}>
             {/* <AppBar component="footer" position="static" color="secondary"> */}
                 <Container maxWidth="md">
                     <Box sx={{ textAlign: 'center' }}>
                         <Typography variant="caption">
-                            ©2025 Shinya Watanabe portfolio
+                            ©2026 Shinya Watanabe portfolio
                         </Typography>
                     </Box>
                 </Container>

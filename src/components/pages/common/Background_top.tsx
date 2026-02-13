@@ -10,12 +10,9 @@ type BackgroundProps = {
 };
 
 const images = [
-    `${process.env.PUBLIC_URL}/image/top1.jpg`,
-    `${process.env.PUBLIC_URL}/image/top13.jpg`,
-    `${process.env.PUBLIC_URL}/image/top2.jpg`,
-    `${process.env.PUBLIC_URL}/image/top10.jpg`,
-    `${process.env.PUBLIC_URL}/image/top11.jpg`,
-
+    `${process.env.PUBLIC_URL}/image/top/top1.jpg`,
+    `${process.env.PUBLIC_URL}/image/top/top2.jpg`,
+    `${process.env.PUBLIC_URL}/image/top/top3.jpg`,
 ];
 
 export const Background: React.FC<BackgroundProps> = ({ children }) => {
@@ -55,6 +52,7 @@ export const Background: React.FC<BackgroundProps> = ({ children }) => {
                 minHeight: "100vh",
                 display: "flex",
                 justifyContent: "center",
+                // justifyContent: "left",
                 alignItems: "center",
                 inset: 0,
                 backgroundImage: `url(${images[index]})`,

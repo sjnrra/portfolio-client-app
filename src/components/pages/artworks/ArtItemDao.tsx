@@ -9,4 +9,5 @@ export interface ArtItemDao {
   size: string;       
   date: string;
   description?: string;
+  portraitOrLandscape: string;
 }

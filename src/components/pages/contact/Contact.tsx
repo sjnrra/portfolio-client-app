@@ -19,8 +19,8 @@ import InputAdornment from '@mui/material/InputAdornment';
 // common
 
 //  style
-import Background from "components/pages/common/Background_artworks";
-import customiseTypography from "components/pages/common/customize_typography";
+import Background from "components/pages/common/Background";
+import customiseTypography from "components/pages/common/Customize_mui_typography";
 //  model
 import { contactModel } from "./ContactModel"
 
@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
                             alignItems="center" // 縦中央
                             justifyContent="center"
                             sx={{
-                                minHeight: "90vh"
+                                minHeight: "100vh"
                             }}
                         >
                             <Box

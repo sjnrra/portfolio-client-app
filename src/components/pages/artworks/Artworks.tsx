@@ -7,16 +7,16 @@
  *************************************************/
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import { FadeIn, FadeInWithStagger } from "components/animation/Fadein";
 // MUI
 import { ThemeProvider } from "@mui/material/styles";
 import { Box, Grid, Paper } from '@mui/material';
 
 // common
 //  style
-import Background from "components/pages/common/Background_artworks";
+import Background from "components/pages/common/Background";
 import styles from "css/Artworks.module.css";
-import customiseTypography from "components/pages/common/customize_typography";
+import customiseTypography from "components/pages/common/Customize_mui_typography";
 //  modal
 import ArtworksModal from "./ArtworksModal";
 //  Data
@@ -33,6 +33,7 @@ const Data = artImageData as Record<string, ArtItemDao>;
 const Artworks: React.FC = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isCdNo, setCdNo] = useState<string>("");
+    const [isPortraitAndLandscape, setPortraitAndLandscape] = useState<string>("");
 
     /**************************************************
      * モーダルウインドウ表示中はスクロール禁止
@@ -62,6 +63,7 @@ const Artworks: React.FC = () => {
                                 isOpen={isModalOpen}
                                 onClose={() => setModalOpen(false)}
                                 cdno={isCdNo}
+                                portraitOrLandscape={isPortraitAndLandscape}
                             >
                                 <button onClick={() => setModalOpen(false)}>閉じる</button>
                             </ArtworksModal>
@@ -93,6 +95,7 @@ const Artworks: React.FC = () => {
                                                 flexDirection="column"
                                                 key={cdno}
                                                 sx={{
+                                                    padding: "5px",
                                                     width: {
                                                         xs: "100%",   // スマホ
                                                         sm: "100%",   // タブレット
@@ -101,14 +104,22 @@ const Artworks: React.FC = () => {
                                                     }
                                                 }}
                                             >
-                                                <Paper className={styles.artimage}
-                                                    component="img"
-                                                    src={process.env.PUBLIC_URL + "/" + item.src}
-                                                    onClick={() => {
-                                                        setModalOpen(true);
-                                                        setCdNo(cdno);
-                                                    }}
-                                                />
+                                                <FadeInWithStagger>
+                                                    <FadeIn>
+                                                        <Paper className={styles.artimage}
+                                                            sx={{
+                                                                padding: "5px",
+                                                                width: "100%"                                                            }}
+                                                            component="img"
+                                                            src={process.env.PUBLIC_URL + "/" + item.src}
+                                                            onClick={() => {
+                                                                setModalOpen(true);
+                                                                setCdNo(cdno);
+                                                                setPortraitAndLandscape(item.portraitOrLandscape);
+                                                            }}
+                                                        />
+                                                    </FadeIn>
+                                                </FadeInWithStagger>
                                             </Grid>
                                         ))}
                                     </Grid>

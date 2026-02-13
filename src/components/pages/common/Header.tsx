@@ -48,6 +48,15 @@ const setNavLinks: Array<{ text: string, url: string }> = [
     { text: "About", url: "/about" },
     { text: "Contact", url: "/contact" }
 ];
+const setNavTop: Array<{ text: string, url: string }> = [
+    // { text: "Top", url: "/portfolio-client-app/" },
+    // { text: "Art works", url: "/portfolio-client-app/artworks" },
+    // { text: "Other works", url: "/portfolio-client-app/otherworks" },
+    // { text: "About", url: "/portfolio-client-app/about" },
+    // { text: "Contact", url: "/portfolio-client-app/contact" }
+    { text: "Portfolio Site", url: "/" },
+];
+
 
 /*************************************************
  * function DrawerAppBar
@@ -64,8 +73,8 @@ const Header: React.FC<Props> = (props) => {
      ***************************************/
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h4" sx={{ my: 2 }}>
-                Portforio site
+            <Typography variant="h5" sx={{ my: 1 }}>
+                Menu
             </Typography>
             <Divider />
             <List component="nav" sx={{
@@ -109,15 +118,35 @@ const Header: React.FC<Props> = (props) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <ColorLensIcon />
+                    {/* <ColorLensIcon /> */}
 
                     <Typography
                         variant="h4"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }}
                     >
-                        Portforio site
+                        Menu
                     </Typography>
+
+                    {setNavTop.map((navLink) => (
+                        <ListItem key={navLink.url} disablePadding>
+                            <ListItemButton
+                                sx={{
+                                    whiteSpace: "nowrap", // 改行とスペースを保持
+                                    textAlign: 'left',
+                                    flexGrow: 1, display: { xs: 'none', sm: 'block' }
+                                }}
+                                component={Link}
+                                to={navLink.url}>
+                                <ListItemText primary={navLink.text}
+                                    sx={{
+                                        "& .MuiListItemText-primary": { fontSize: "2.4rem" },
+                                        "& .MuiListItemText-secondary": { fontSize: "0.9rem" }
+                                    }}
+                                />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
 
                     <Box
                         sx={{ display: { xs: 'none', sm: 'block' } }}
@@ -150,6 +179,7 @@ const Header: React.FC<Props> = (props) => {
                     </Box>
                 </Toolbar>
             </AppBar>
+
             <nav>
                 <Drawer
                     container={container}

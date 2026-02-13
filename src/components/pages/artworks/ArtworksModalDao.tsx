@@ -8,4 +8,5 @@ export interface ArtworksModalDao {
   onClose: () => void;           // 閉じる処理
   cdno: string;
   children: ReactNode;
+  portraitOrLandscape: string;
 }
