@@ -22,7 +22,11 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
+import { ThemeProvider } from "@mui/material/styles";
+
+// common style
+import customiseTypography from "components/pages/common/Customize_mui_typography";
+export const theme = customiseTypography
 
 /*************************************************
  * interface Props
@@ -43,17 +47,12 @@ const setNavLinks: Array<{ text: string, url: string }> = [
     // { text: "About", url: "/portfolio-client-app/about" },
     // { text: "Contact", url: "/portfolio-client-app/contact" }
     { text: "Top", url: "/" },
-    { text: "Art works", url: "/artworks" },
-    { text: "Other works", url: "/otherworks" },
+    { text: "ArtWorks", url: "/artworks" },
+    { text: "OtherWorks", url: "/otherworks" },
     { text: "About", url: "/about" },
     { text: "Contact", url: "/contact" }
 ];
 const setNavTop: Array<{ text: string, url: string }> = [
-    // { text: "Top", url: "/portfolio-client-app/" },
-    // { text: "Art works", url: "/portfolio-client-app/artworks" },
-    // { text: "Other works", url: "/portfolio-client-app/otherworks" },
-    // { text: "About", url: "/portfolio-client-app/about" },
-    // { text: "Contact", url: "/portfolio-client-app/contact" }
     { text: "Portfolio Site", url: "/" },
 ];
 
@@ -72,7 +71,8 @@ const Header: React.FC<Props> = (props) => {
      * Window縮小時のヘッダーバー
      ***************************************/
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Box 
+        onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h5" sx={{ my: 1 }}>
                 Menu
             </Typography>
@@ -104,100 +104,117 @@ const Header: React.FC<Props> = (props) => {
      * 通常のヘッダーバー
      ***************************************/
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar component="nav" style={{ color: "#ffffffff", backgroundColor: "#363535ff" }}>
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
+        <>
+            <ThemeProvider theme={theme}>
+                <Box sx={{ display: 'flex' }}>
+                    <CssBaseline />
+                    <AppBar component="nav" style={{ color: "#ffffffff", backgroundColor: "rgba(20, 6, 32, 0.85)" }}>
+                    {/* <AppBar component="nav" style={{ color: "#ffffffff", backgroundColor: "rgba(166, 68, 247, 0.95)" }}> */}
+                        {/* <AppBar component="nav" style={{ color: "#ffffffff", backgroundColor: "#363535ff" }}> */}
+                        <Toolbar>
 
-                    {/* <ColorLensIcon /> */}
-
-                    <Typography
-                        variant="h4"
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }}
-                    >
-                        Menu
-                    </Typography>
-
-                    {setNavTop.map((navLink) => (
-                        <ListItem key={navLink.url} disablePadding>
-                            <ListItemButton
-                                sx={{
-                                    whiteSpace: "nowrap", // 改行とスペースを保持
-                                    textAlign: 'left',
-                                    flexGrow: 1, display: { xs: 'none', sm: 'block' }
-                                }}
-                                component={Link}
-                                to={navLink.url}>
-                                <ListItemText primary={navLink.text}
-                                    sx={{
-                                        "& .MuiListItemText-primary": { fontSize: "2.4rem" },
-                                        "& .MuiListItemText-secondary": { fontSize: "0.9rem" }
-                                    }}
-                                />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-
-                    <Box
-                        sx={{ display: { xs: 'none', sm: 'block' } }}
-                    >
-                        <List
-                            component="nav"
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'flex-start'
-                            }}
-                        >
-                            {setNavLinks.map((navLink) => (
+                            {setNavTop.map((navLink) => (
                                 <ListItem key={navLink.url} disablePadding>
-                                    <ListItemButton sx={{
-                                        textAlign: 'center',
-                                        whiteSpace: "nowrap" // 改行とスペースを保持
-                                    }}
+                                    <ListItemButton
+                                        sx={{
+                                            whiteSpace: "nowrap", // 改行とスペースを保持
+                                            textAlign: 'left',
+                                            flexGrow: 1,
+                                            display: { xs: 'block', sm: 'block' }
+                                        }}
                                         component={Link}
                                         to={navLink.url}>
                                         <ListItemText primary={navLink.text}
                                             sx={{
-                                                "& .MuiListItemText-primary": { fontSize: "1.4rem" },
+                                                "& .MuiListItemText-primary": { fontSize: "2.0rem" },
                                                 "& .MuiListItemText-secondary": { fontSize: "0.9rem" }
                                             }}
                                         />
                                     </ListItemButton>
                                 </ListItem>
                             ))}
-                        </List>
-                    </Box>
-                </Toolbar>
-            </AppBar>
 
-            <nav>
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                >
-                    {drawer}
-                </Drawer>
-            </nav>
-        </Box>
+                            <Box
+                                sx={{
+                                    alignItems: "center",
+                                }}
+                                display="flex"
+                                flexDirection="column"
+                            >
+                                <IconButton
+                                    color="inherit"
+                                    aria-label="open drawer"
+                                    // edge="start"
+                                    onClick={handleDrawerToggle}
+                                    sx={{
+                                        // mr: 2,
+                                        display: { sm: 'none' }
+                                    }}
+                                >
+                                    <MenuIcon />
+                                </IconButton>
+                                <Typography
+                                    variant="body2"
+                                    component="div"
+                                    sx={{
+                                        flexGrow: 1,
+                                        display: { sm: 'none' }
+                                    }}
+                                >
+                                    Menu
+                                </Typography>
+                            </Box>
+
+                            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                                <List
+                                    component="nav"
+                                    sx={{
+                                        display: 'flex',
+                                        justifyContent: 'flex-start'
+                                    }}
+                                >
+                                    {setNavLinks.map((navLink) => (
+                                        <ListItem key={navLink.url} disablePadding>
+                                            <ListItemButton sx={{
+                                                textAlign: 'center',
+                                                whiteSpace: "nowrap" // 改行とスペースを保持
+                                            }}
+                                                component={Link}
+                                                to={navLink.url}>
+                                                <ListItemText primary={navLink.text}
+                                                    sx={{
+                                                        "& .MuiListItemText-primary": { fontSize: "1.3rem" },
+                                                        "& .MuiListItemText-secondary": { fontSize: "0.9rem" }
+                                                    }}
+                                                />
+                                            </ListItemButton>
+                                        </ListItem>
+                                    ))}
+                                </List>
+                            </Box>
+                        </Toolbar>
+                    </AppBar>
+
+                    <nav>
+                        <Drawer
+                            container={container}
+                            variant="temporary"
+                            open={mobileOpen}
+                            onClose={handleDrawerToggle}
+                            ModalProps={{
+                                keepMounted: true, // Better open performance on mobile.
+                            }}
+                            sx={{
+                                display: { xs: 'block', sm: 'none' },
+                                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                            }}
+                        >
+                            {drawer}
+                        </Drawer>
+                    </nav>
+                </Box>
+            </ThemeProvider>
+        </>
     );
 }
 

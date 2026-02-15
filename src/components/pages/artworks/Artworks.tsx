@@ -7,23 +7,45 @@
  *************************************************/
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FadeIn, FadeInWithStagger } from "components/animation/Fadein";
 // MUI
-import { ThemeProvider } from "@mui/material/styles";
-import { Box, Grid, Paper } from '@mui/material';
+import {
+    ThemeProvider,
+    styled
+} from "@mui/material/styles";
+import {
+    Box,
+    Grid,
+    Paper
+} from '@mui/material';
 
-// common
-//  style
+/*************************************************
+ * original customize
+ *************************************************/
+// common style
 import Background from "components/pages/common/Background";
-import styles from "css/Artworks.module.css";
 import customiseTypography from "components/pages/common/Customize_mui_typography";
-//  modal
+// modal
 import ArtworksModal from "./ArtworksModal";
-//  Data
+// Data
 import artImageData from "data/artimage.json";
 import { ArtItemDao } from "./ArtItemDao";
 
+// customize animation for fade in
+import {
+    FadeIn,
+    FadeInWithStagger
+} from "components/animation/Fadein";
+
+// customize MUI theme for typography
 export const theme = customiseTypography
+
+// customize MUI theme for Paper
+const CustomizePaper = styled(Paper)({
+    "&:hover": {
+        cursor: "pointer",
+        filter: "brightness(108%)",
+    },
+});
 
 /*************************************************
  * React.FC Artworks
@@ -57,7 +79,6 @@ const Artworks: React.FC = () => {
                         exit={{ opacity: 0 }}          // ページ離脱時（透明）
                         transition={{ duration: 0.5 }} // アニメーション時間
                     >
-                        {/* <div style={{ padding: "40px" }}></div> */}
                         <div>
                             <ArtworksModal
                                 isOpen={isModalOpen}
@@ -76,56 +97,54 @@ const Artworks: React.FC = () => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1 }}
                     >
-
-                        <div className={styles.box}>
-                            <div>
-                                <Box
-                                    sx={{
-                                        padding: "40px",
-                                    }}
-                                >
+                        <Box
+                            sx={{
+                                padding: "40px",
+                            }}
+                        >
+                            <Grid
+                                container
+                                spacing={2}
+                                justifyContent="center"
+                            >
+                                {Object.entries(Data).map(([cdno, item]) => (
                                     <Grid
-                                        container
-                                        spacing={2}
-                                        justifyContent="center"
+                                        display="flex"
+                                        flexDirection="column"
+                                        key={cdno}
+                                        sx={{
+                                            padding: "5px",
+                                            width: {
+                                                xs: "100%",   // スマホ
+                                                sm: "100%",   // タブレット
+                                                md: "45%",   // PC
+                                                lg: "30%",   // 大画面
+                                            }
+                                        }}
                                     >
-                                        {Object.entries(Data).map(([cdno, item]) => (
-                                            <Grid
-                                                display="flex"
-                                                flexDirection="column"
-                                                key={cdno}
-                                                sx={{
-                                                    padding: "5px",
-                                                    width: {
-                                                        xs: "100%",   // スマホ
-                                                        sm: "100%",   // タブレット
-                                                        md: "45%",   // PC
-                                                        lg: "30%",   // 大画面
-                                                    }
-                                                }}
-                                            >
-                                                <FadeInWithStagger>
-                                                    <FadeIn>
-                                                        <Paper className={styles.artimage}
-                                                            sx={{
-                                                                padding: "5px",
-                                                                width: "100%"                                                            }}
-                                                            component="img"
-                                                            src={process.env.PUBLIC_URL + "/" + item.src}
-                                                            onClick={() => {
-                                                                setModalOpen(true);
-                                                                setCdNo(cdno);
-                                                                setPortraitAndLandscape(item.portraitOrLandscape);
-                                                            }}
-                                                        />
-                                                    </FadeIn>
-                                                </FadeInWithStagger>
-                                            </Grid>
-                                        ))}
+                                        <FadeInWithStagger>
+                                            <FadeIn>
+                                                <CustomizePaper>
+                                                    <Paper
+                                                        component="img"
+                                                        src={process.env.PUBLIC_URL + "/" + item.src}
+                                                        onClick={() => {
+                                                            setModalOpen(true);
+                                                            setCdNo(cdno);
+                                                            setPortraitAndLandscape(item.portraitOrLandscape);
+                                                        }}
+                                                        sx={{
+                                                            padding: "5px",
+                                                            width: "100%"
+                                                        }}
+                                                    />
+                                                </CustomizePaper>
+                                            </FadeIn>
+                                        </FadeInWithStagger>
                                     </Grid>
-                                </Box>
-                            </div>
-                        </div>
+                                ))}
+                            </Grid>
+                        </Box>
 
                     </motion.div>
                 </Background>

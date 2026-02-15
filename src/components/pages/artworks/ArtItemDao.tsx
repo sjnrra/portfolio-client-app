@@ -11,3 +11,7 @@ export interface ArtItemDao {
   description?: string;
   portraitOrLandscape: string;
 }
+
+export interface ArtItemDaoObject {
+  item: ArtItemDao;
+}

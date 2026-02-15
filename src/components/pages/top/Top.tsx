@@ -76,7 +76,7 @@ const Top: React.FC = () => {
                                             <p className={styles.top_info}>information</p>
                                             {/* <br/> */}
                                             2025/12/28　　新規作成  <br />
-                                            2026/03/xx　　作品追加、ホームページ修正
+                                            2026/03/01　　作品追加、ホームページ修正
                                             <br /><br /><br />
                                         </Typography>
                                     </div>

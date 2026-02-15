@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-export const customiseTypography = createTheme({
+export const customizeTypography = createTheme({
     typography: {
         fontFamily: `"Meiryo", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif`,
         fontSize: 14,
@@ -16,7 +16,8 @@ export const customiseTypography = createTheme({
         subtitle1: { fontSize: 18 },
         body1: { fontSize: 14 },
         body2: { fontSize: 12 },
+        // body2: { fontSize: 8 },
         button: { textTransform: 'none' },
     },
 })
-export default customiseTypography;
+export default customizeTypography;

@@ -175,8 +175,8 @@ const Contact: React.FC = () => {
                                             width: {
                                                 xs: "100%",   // スマホ
                                                 sm: "100%",   // タブレット
-                                                md: "100%",   // PC
-                                                lg: "100%",   // 大画面
+                                                md: "50%",   // PC
+                                                lg: "50%",   // 大画面
                                             }
                                         }}
                                     />
@@ -208,8 +208,8 @@ const Contact: React.FC = () => {
                                             width: {
                                                 xs: "100%",   // スマホ
                                                 sm: "100%",   // タブレット
-                                                md: "100%",   // PC
-                                                lg: "100%",   // 大画面
+                                                md: "50%",   // PC
+                                                lg: "50%",   // 大画面
                                             },
                                             mb: 2
                                         }}
@@ -223,7 +223,7 @@ const Contact: React.FC = () => {
                                         error={!!errors.message}
                                         label="お問い合わせ内容"
                                         multiline
-                                        rows={9}
+                                        rows={12}
                                         fullWidth
                                         margin="normal"
                                         helperText={errors.message && "お問い合わせ内容を入力してください。"}

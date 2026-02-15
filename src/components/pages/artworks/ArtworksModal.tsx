@@ -6,20 +6,22 @@
  * import
  *************************************************/
 import React, { useEffect } from "react";
-
 // MUI
-import { Fade, Box, Paper, Typography, Grid } from '@mui/material';
+import { Fade, Box, Grid, Typography } from '@mui/material';
 import { ThemeProvider } from "@mui/material/styles";
 
-// common
-//  data
+/*************************************************
+ * original customize
+ *************************************************/
+// artworksmodal dao
 import artImageData from "data/artimage.json";
 import { ArtItemDao } from "./ArtItemDao";
+import { ArtItemDaoObject } from "./ArtItemDao";
 import { ArtworksModalDao } from "./ArtworksModalDao";
-//  style
-import customiseTypography from "components/pages/common/Customize_mui_typography";
+// artworksmodal css
 import styles1 from "css/ArtworksModal.module.css";
-
+// common style
+import customiseTypography from "components/pages/common/Customize_mui_typography";
 export const theme = customiseTypography
 
 /*************************************************
@@ -92,9 +94,7 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno, port
         <ThemeProvider theme={theme}>
           <div className={styles1.modal_overlay} onClick={onClose}>
             <Fade in={isOpen} timeout={800}>
-              {/*************************************
-                * 全体
-                *************************************/}
+              {/* portrait artworks */}
               <Grid
                 display="flex"
                 flexDirection="column"
@@ -104,34 +104,22 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno, port
                   borderRadius: 2,
                   padding: "10px",
                   maxHeight: "90vh",
-                  maxWidth:"80vw",
+                  maxWidth: "80vw",
                 }}
               >
-                {/*************************************
-                * 作品写真
-                *************************************/}
+                {/* photo */}
                 <Box
                   component="img"
                   src={process.env.PUBLIC_URL + "/" + item.modal_src}
                   sx={{
                     width: "100%",
-                    maxHeight: "85vh",
+                    maxHeight: "80vh",
                     objectFit: "contain",
                   }}
                 />
-                {/*************************************
-                * 作品キャプション
-                *************************************/}
-                <Typography
-                  variant="body2"
-                  sx={{
-                    marginTop: "5px"
-                  }}
-                >
-                  作品名：{item.name}    制作年：{item.date}    サイズ：{item.size}
-                </Typography>
+                {/* description */}
+                <Test item={item} />
               </Grid>
-
             </Fade>
           </div>
         </ThemeProvider>
@@ -143,10 +131,7 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno, port
         <ThemeProvider theme={theme}>
           <div className={styles1.modal_overlay} onClick={onClose}>
             <Fade in={isOpen} timeout={800}>
-
-              {/*************************************
-              * 全体
-              *************************************/}
+              {/* landscape artworks */}
               <Grid
                 display="flex"
                 flexDirection="column"
@@ -156,12 +141,10 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno, port
                   borderRadius: 2,
                   padding: "10px",
                   maxHeight: "80vh",
-                  maxWidth:"95vw",
+                  maxWidth: "95vw",
                 }}
               >
-                {/*************************************
-                * 作品写真
-                *************************************/}
+                {/* photo */}
                 <Box
                   component="img"
                   src={process.env.PUBLIC_URL + "/" + item.modal_src}
@@ -171,19 +154,8 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno, port
                     objectFit: "contain",
                   }}
                 />
-
-                {/*************************************
-                * 作品キャプション
-                *************************************/}
-                <Typography
-                  variant="body2"
-                  sx={{
-                    marginTop: "5px"
-                  }}
-                >
-                  作品名：{item.name}    制作年：{item.date}    サイズ：{item.size}
-                </Typography>
-
+                {/* description */}
+                <Test item={item} />
               </Grid>
             </Fade>
           </div>
@@ -196,10 +168,17 @@ const ArtworksModal: React.FC<ArtworksModalDao> = ({ isOpen, onClose, cdno, port
 /*********************************
  * 共通部分実装予定
  *********************************/
-export const Test: React.FC = () => {
+const Test: React.FC<ArtItemDaoObject> = ({ item }) => {
   return (
     <>
-      <h1>hello</h1>
+      <Typography
+        variant="body2"
+        sx={{
+          marginTop: "5px"
+        }}
+      >
+        作品名：{item.name}    制作年：{item.date}    サイズ：{item.size}
+      </Typography>
     </>
   );
 }
