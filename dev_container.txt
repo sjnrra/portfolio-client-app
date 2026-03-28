@@ -1,3 +1,0 @@
-C:\app\project\web-server-prof>npm install @mui/material @emotion/react @emotion/styled
-C:\app\project\web-server-prof>npm i -S react-router-dom
-C:\app\project\web-server-prof>npm install @mui/icons-material
