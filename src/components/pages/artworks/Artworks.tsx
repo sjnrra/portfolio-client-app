@@ -45,6 +45,8 @@ const CustomizePaper = styled(Paper)({
         cursor: "pointer",
         filter: "brightness(108%)",
     },
+    backgroundColor: "transparent", 
+    boxShadow: "none",             
 });
 
 /*************************************************
@@ -119,7 +121,7 @@ const Artworks: React.FC = () => {
                                                 sm: "100%",   // タブレット
                                                 md: "45%",   // PC
                                                 lg: "30%",   // 大画面
-                                            }
+                                            },
                                         }}
                                     >
                                         <FadeInWithStagger>
@@ -135,7 +137,7 @@ const Artworks: React.FC = () => {
                                                         }}
                                                         sx={{
                                                             padding: "5px",
-                                                            width: "100%"
+                                                            width: "100%",
                                                         }}
                                                     />
                                                 </CustomizePaper>
