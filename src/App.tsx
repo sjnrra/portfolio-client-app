@@ -10,11 +10,12 @@ import { Routes, Route } from "react-router-dom";
 
 import Top from "./components/pages/top/Top";
 import Artworks from "./components/pages/artworks/Artworks";
-import Otherworks from "./components/pages/Otherworks";
-import About from "./components/pages/About";
+import Otherworks from "./components/pages/otherworks/Otherworks";
+import About from "./components/pages/about/About";
 import Contact from "./components/pages/contact/Contact";
 import Header from './components/pages/common/Header'
 import Footer from './components/pages/common/Footer'
+import Toolbar from '@mui/material/Toolbar';
 
 /*************************************************
  * App
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <Header />
+      <Toolbar />
       <Routes>
         <Route path="/" element={<Top />} />
         <Route path="/artworks" element={<Artworks />} />

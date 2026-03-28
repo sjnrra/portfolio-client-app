@@ -9,4 +9,9 @@ export interface ArtItemDao {
   size: string;       
   date: string;
   description?: string;
+  portraitOrLandscape: string;
+}
+
+export interface ArtItemDaoObject {
+  item: ArtItemDao;
 }

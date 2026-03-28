@@ -10,6 +10,11 @@ import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { ThemeProvider } from "@mui/material/styles";
+
+// common style
+import customiseTypography from "components/pages/common/Customize_mui_typography";
+export const theme = customiseTypography
 
 /*************************************************
  * Footer
@@ -17,17 +22,18 @@ import Typography from "@mui/material/Typography";
 const Footer: React.FC = () => {
     return (
         <>
-        {/* <h1>aaaa</h1> */}
-            <AppBar className="footer" component="footer" position="static" sx={{ backgroundColor: '#363535ff' }}>
-            {/* <AppBar component="footer" position="static" color="secondary"> */}
-                <Container maxWidth="md">
-                    <Box sx={{ textAlign: 'center' }}>
-                        <Typography variant="caption">
-                            ©2025 Shinya Watanabe portfolio
-                        </Typography>
-                    </Box>
-                </Container>
-            </AppBar>
+            <ThemeProvider theme={theme}>
+                <AppBar className="footer" component="footer" position="static" sx={{ backgroundColor: "rgba(20, 6, 32, 0.85)" }}>
+                    {/* <AppBar component="footer" position="static" color="secondary"> */}
+                    <Container maxWidth="md">
+                        <Box sx={{ textAlign: 'center' }}>
+                            <Typography variant="caption">
+                                ©2026 Shinya Watanabe Portfolio Site
+                            </Typography>
+                        </Box>
+                    </Container>
+                </AppBar>
+            </ThemeProvider>
         </>
     );
 };

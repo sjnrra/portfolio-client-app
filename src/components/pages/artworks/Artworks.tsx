@@ -5,25 +5,47 @@
 /*************************************************
  * import
  *************************************************/
-import React, { useState, ReactNode, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-
 // MUI
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Box, Grid, Paper } from '@mui/material';
+import {
+    ThemeProvider,
+    styled
+} from "@mui/material/styles";
+import {
+    Box,
+    Grid,
+    Paper
+} from '@mui/material';
 
-// common
-//  style
-import Background from "components/pages/common/Background_artworks";
-import styles from "css/Artworks.module.css";
-import customiseTypography from "components/pages/common/customize_typography";
-//  modal
+/*************************************************
+ * original customize
+ *************************************************/
+// common style
+import Background from "components/pages/common/Background";
+import customiseTypography from "components/pages/common/Customize_mui_typography";
+// modal
 import ArtworksModal from "./ArtworksModal";
-//  Data
+// Data
 import artImageData from "data/artimage.json";
 import { ArtItemDao } from "./ArtItemDao";
 
+// customize animation for fade in
+import {
+    FadeIn,
+    FadeInWithStagger
+} from "components/animation/Fadein";
+
+// customize MUI theme for typography
 export const theme = customiseTypography
+
+// customize MUI theme for Paper
+const CustomizePaper = styled(Paper)({
+    "&:hover": {
+        cursor: "pointer",
+        filter: "brightness(108%)",
+    },
+});
 
 /*************************************************
  * React.FC Artworks
@@ -33,6 +55,7 @@ const Data = artImageData as Record<string, ArtItemDao>;
 const Artworks: React.FC = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isCdNo, setCdNo] = useState<string>("");
+    const [isPortraitAndLandscape, setPortraitAndLandscape] = useState<string>("");
 
     /**************************************************
      * モーダルウインドウ表示中はスクロール禁止
@@ -56,11 +79,12 @@ const Artworks: React.FC = () => {
                         exit={{ opacity: 0 }}          // ページ離脱時（透明）
                         transition={{ duration: 0.5 }} // アニメーション時間
                     >
-                        <div style={{ padding: "40px" }}>
+                        <div>
                             <ArtworksModal
                                 isOpen={isModalOpen}
                                 onClose={() => setModalOpen(false)}
                                 cdno={isCdNo}
+                                portraitOrLandscape={isPortraitAndLandscape}
                             >
                                 <button onClick={() => setModalOpen(false)}>閉じる</button>
                             </ArtworksModal>
@@ -73,47 +97,54 @@ const Artworks: React.FC = () => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1 }}
                     >
-
-                        <div className={styles.box}>
-                            <div>
-                                <Box
-                                    sx={{
-                                        padding: "40px",
-                                    }}
-                                >
+                        <Box
+                            sx={{
+                                padding: "40px",
+                            }}
+                        >
+                            <Grid
+                                container
+                                spacing={2}
+                                justifyContent="center"
+                            >
+                                {Object.entries(Data).map(([cdno, item]) => (
                                     <Grid
-                                        container
-                                        spacing={2}
-                                        justifyContent="center"
+                                        display="flex"
+                                        flexDirection="column"
+                                        key={cdno}
+                                        sx={{
+                                            padding: "5px",
+                                            width: {
+                                                xs: "100%",   // スマホ
+                                                sm: "100%",   // タブレット
+                                                md: "45%",   // PC
+                                                lg: "30%",   // 大画面
+                                            }
+                                        }}
                                     >
-                                        {Object.entries(Data).map(([cdno, item]) => (
-                                            <Grid
-                                                display="flex"
-                                                flexDirection="column"
-                                                key={cdno}
-                                                sx={{
-                                                    width: {
-                                                        xs: "100%",   // スマホ
-                                                        sm: "100%",   // タブレット
-                                                        md: "48%",   // PC
-                                                        lg: "30%",   // 大画面
-                                                    }
-                                                }}
-                                            >
-                                                <Paper className={styles.artimage}
-                                                    component="img"
-                                                    src={item.src}
-                                                    onClick={() => {
-                                                        setModalOpen(true);
-                                                        setCdNo(cdno);
-                                                    }}
-                                                />
-                                            </Grid>
-                                        ))}
+                                        <FadeInWithStagger>
+                                            <FadeIn>
+                                                <CustomizePaper>
+                                                    <Paper
+                                                        component="img"
+                                                        src={process.env.PUBLIC_URL + "/" + item.src}
+                                                        onClick={() => {
+                                                            setModalOpen(true);
+                                                            setCdNo(cdno);
+                                                            setPortraitAndLandscape(item.portraitOrLandscape);
+                                                        }}
+                                                        sx={{
+                                                            padding: "5px",
+                                                            width: "100%"
+                                                        }}
+                                                    />
+                                                </CustomizePaper>
+                                            </FadeIn>
+                                        </FadeInWithStagger>
                                     </Grid>
-                                </Box>
-                            </div>
-                        </div>
+                                ))}
+                            </Grid>
+                        </Box>
 
                     </motion.div>
                 </Background>

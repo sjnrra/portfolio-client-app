@@ -17,9 +17,10 @@ import EmailIcon from '@mui/icons-material/Email';
 import InputAdornment from '@mui/material/InputAdornment';
 
 // common
+
 //  style
 import Background from "components/pages/common/Background";
-import customiseTypography from "components/pages/common/customize_typography";
+import customiseTypography from "components/pages/common/Customize_mui_typography";
 //  model
 import { contactModel } from "./ContactModel"
 
@@ -99,7 +100,8 @@ const Contact: React.FC = () => {
                         anchorOrigin={{ vertical: "top", horizontal: "center" }}
                     >
                         <Alert onClose={handleSenderrorClose} severity="error" sx={{ width: "100%" }}>
-                            問い合わせの送信に失敗しました。<br></br>時間をおいて再度送信してください。
+                            {/* 問い合わせの送信に失敗しました。<br></br>時間をおいて再度送信してください。 */}
+                            問い合わせ機能は実装中です。<br></br>別の方法で問い合わせてください。
                         </Alert>
                     </Snackbar>
 
@@ -112,155 +114,152 @@ const Contact: React.FC = () => {
                         exit={{ opacity: 0 }}          // ページ離脱時（透明）
                         transition={{ duration: 0.5 }} // アニメーション時間
                     >
-                        <Box
+                        <Grid
+                            container
+                            alignItems="center" // 縦中央
+                            justifyContent="center"
                             sx={{
-                                // width: '100%',
-                                minHeight: '30vh',
-                                margin: '30px auto',
-                                bgcolor: "white",
-                                display: "flex",
-                                borderRadius: 3,
-                                width: {
-                                    // padding: "5px",
-                                    xs: "97%",   // スマホ
-                                    sm: "100%",   // タブレット
-                                    md: "100%",   // PC
-                                    lg: "100%",   // 大画面
-                                }
-
+                                minHeight: "100vh"
                             }}
                         >
-                            <Grid>
-                                <Grid>
-                                    <Box sx={{ p: 3 }} >
+                            <Box
+                                sx={{
+                                    bgcolor: "white",
+                                    borderRadius: 3,
+                                    width: {
+                                        padding: "30px",
+                                        xs: "90%",   // スマホ
+                                        sm: "80%",   // タブレット
+                                        md: "70%",   // PC
+                                        lg: "50%",   // 大画面
+                                    }
+                                }}
+                            >
+                                <Typography
+                                    variant="h5"
+                                    sx={{
+                                        marginBottom: "1rem"
+                                    }}
+                                >
+                                    問い合わせフォーム
+                                </Typography>
 
-                                        <Typography
-                                            variant="h5"
-                                            sx={{
-                                                marginBottom: "1rem"
-                                            }}
-                                        >
-                                            問い合わせフォーム
-                                        </Typography>
+                                {/*****************************************************
+                                  * フォーム
+                                  ******************************************************/}
+                                <form onSubmit={handleSubmit(onSubmit)}>
 
-                                        {/*****************************************************
-                                          * フォーム
-                                          ******************************************************/}
-                                        <form onSubmit={handleSubmit(onSubmit)}>
+                                    {/*****************************************************
+                                      * 名前
+                                      ******************************************************/}
+                                    <TextField
+                                        {...register("name", { required: true })}
+                                        error={!!errors.name}
+                                        label="お名前"
+                                        margin="normal"
+                                        helperText={errors.name && "名前を入力してください。"}
+                                        slotProps={{
+                                            input: {
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <AccountCircle />
+                                                    </InputAdornment>
+                                                ),
+                                            },
+                                        }}
+                                        style={{
+                                            marginBottom: "1rem",
+                                            marginRight: "1rem",
+                                        }}
+                                        sx={{
+                                            width: {
+                                                xs: "100%",   // スマホ
+                                                sm: "100%",   // タブレット
+                                                md: "50%",   // PC
+                                                lg: "50%",   // 大画面
+                                            }
+                                        }}
+                                    />
 
-                                            {/*****************************************************
-                                             * 名前
-                                             ******************************************************/}
-                                            <TextField
-                                                {...register("name", { required: true })}
-                                                error={!!errors.name}
-                                                label="お名前"
-                                                margin="normal"
-                                                helperText={errors.name && "名前を入力してください。"}
-                                                slotProps={{
-                                                    input: {
-                                                        startAdornment: (
-                                                            <InputAdornment position="start">
-                                                                <AccountCircle />
-                                                            </InputAdornment>
-                                                        ),
-                                                    },
-                                                }}
-                                                style={{
-                                                    marginBottom: "1rem",
-                                                    marginRight: "1rem",
-                                                }}
-                                                sx={{
-                                                    width: {
-                                                        xs: "100%",   // スマホ
-                                                        sm: "100%",   // タブレット
-                                                        md: "100%",   // PC
-                                                        lg: "100%",   // 大画面
-                                                    }
-                                                }}
-                                            />
+                                    {/*****************************************************
+                                      * メール
+                                      ******************************************************/}
+                                    <TextField
+                                        {...register("email", { required: true })}
+                                        error={!!errors.email}
+                                        label="Eメール"
+                                        type="email"
+                                        margin="normal"
+                                        helperText={errors.email && "メールを入力してください。"}
+                                        slotProps={{
+                                            input: {
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <EmailIcon />
+                                                    </InputAdornment>
+                                                ),
+                                            },
+                                        }}
+                                        style={{
+                                            marginBottom: "1rem",
+                                            marginRight: "1rem",
+                                        }}
+                                        sx={{
+                                            width: {
+                                                xs: "100%",   // スマホ
+                                                sm: "100%",   // タブレット
+                                                md: "50%",   // PC
+                                                lg: "50%",   // 大画面
+                                            },
+                                            mb: 2
+                                        }}
+                                    />
 
-                                            {/*****************************************************
-                                             * メール
-                                             ******************************************************/}
-                                            <TextField
-                                                {...register("email", { required: true })}
-                                                error={!!errors.email}
-                                                label="Eメール"
-                                                type="email"
-                                                margin="normal"
-                                                helperText={errors.email && "メールを入力してください。"}
-                                                slotProps={{
-                                                    input: {
-                                                        startAdornment: (
-                                                            <InputAdornment position="start">
-                                                                <EmailIcon />
-                                                            </InputAdornment>
-                                                        ),
-                                                    },
-                                                }}
-                                                style={{
-                                                    marginBottom: "1rem",
-                                                    marginRight: "1rem",
-                                                }}
-                                                sx={{
-                                                    width: {
-                                                        xs: "100%",   // スマホ
-                                                        sm: "100%",   // タブレット
-                                                        md: "100%",   // PC
-                                                        lg: "100%",   // 大画面
-                                                    },
-                                                    mb: 2
-                                                }}
-                                            />
+                                    {/*****************************************************
+                                      * お問い合わせ内容
+                                      ******************************************************/}
+                                    <TextField
+                                        {...register("message", { required: true })}
+                                        error={!!errors.message}
+                                        label="お問い合わせ内容"
+                                        multiline
+                                        rows={12}
+                                        fullWidth
+                                        margin="normal"
+                                        helperText={errors.message && "お問い合わせ内容を入力してください。"}
+                                        style={{
+                                            display: "block",
+                                            marginBottom: "1rem",
+                                            marginRight: "1rem",
+                                        }}
+                                        sx={{
+                                            width: {
+                                                xs: "100%",   // スマホ
+                                                sm: "100%",   // タブレット
+                                                md: "100%",   // PC
+                                                lg: "100%",   // 大画面
+                                            },
+                                            mb: 2
+                                        }}
+                                    />
 
-                                            {/*****************************************************
-                                             * お問い合わせ内容
-                                             ******************************************************/}
-                                            <TextField
-                                                {...register("message", { required: true })}
-                                                error={!!errors.message}
-                                                label="お問い合わせ内容"
-                                                multiline
-                                                rows={9}
-                                                fullWidth
-                                                margin="normal"
-                                                helperText={errors.message && "お問い合わせ内容を入力してください。"}
-                                                style={{
-                                                    display: "block",
-                                                    marginBottom: "1rem",
-                                                    marginRight: "1rem",
-                                                }}
-                                                sx={{
-                                                    width: {
-                                                        xs: "100%",   // スマホ
-                                                        sm: "100%",   // タブレット
-                                                        md: "100%",   // PC
-                                                        lg: "100%",   // 大画面
-                                                    },
-                                                    mb: 2
-                                                }}
-                                            />
-
-                                            {/*****************************************************
-                                             * 送信ボタン
-                                             ******************************************************/}
-                                            <Button
-                                                variant="contained"
-                                                color="primary"
-                                                type="submit"
-                                                sx={{ mt: 2 }}
-                                            >
-                                                送信
-                                            </Button>
-                                        </form>
-                                    </Box>
-                                </Grid>
-                            </Grid>
-                        </Box>
+                                    {/*****************************************************
+                                      * 送信ボタン
+                                      ******************************************************/}
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        type="submit"
+                                        sx={{ mt: 2 }}
+                                    >
+                                        送信
+                                    </Button>
+                                </form>
+                            </Box>
+                        </Grid>
                     </motion.div >
                 </ThemeProvider >
-            </Background>
+            </Background >
         </>
     );
 }
